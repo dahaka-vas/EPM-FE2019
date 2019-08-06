@@ -1,0 +1,547 @@
+body, html {
+  margin: 0px;
+  padding: 0px;
+}
+
+#welcome .welcome_section .circle_drawer, #welcome .welcome_section .circle_bell, #welcome .welcome_section .circle_envelop, #team .circle_team_1, #team .circle_team_2, #team .circle_team_3, #team .circle_team_4, #team .circle_team_5, #team .circle_team_6 {
+  border-radius: 50%;
+}
+
+.background {
+  position: relative;
+  margin: auto;
+  padding: 0px;
+  width: 1400px;
+  background-color: #fefefe;
+}
+
+header {
+  background-image: url(img/image.png);
+  background-size: cover;
+  width: 100%;
+  height: 692.6px;
+}
+
+header .logo {
+  position: relative;
+  top: 7px;
+  margin-left: 351px;
+  margin-top: 35px;
+  float: left;
+}
+
+header .logo a {
+  font-family: Montserrat;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  text-align: left;
+  color: #ffffff;
+  font-size: 29.5px;
+  line-height: 0.64;
+  letter-spacing: -2.96px;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+header nav {
+  float: left;
+  margin-left: 607px;
+  margin-top: -11px;
+}
+
+header nav a {
+  padding: 0px 15px;
+  font-family: Montserrat;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  text-align: left;
+  color: #ffffff;
+  font-size: 10.5px;
+  letter-spacing: normal;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+header nav a:hover {
+  color: #ffe26d;
+}
+
+header .head_txt {
+  width: 472px;
+  float: left;
+  margin-left: 351px;
+  margin-top: 90px;
+}
+
+header .head_txt h1 {
+  font-family: Montserrat;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  text-align: left;
+  color: #ffffff;
+  font-size: 40.5px;
+  line-height: normal;
+  letter-spacing: normal;
+}
+
+header .head_txt p {
+  font-family: Roboto;
+  font-weight: 100;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  font-size: 19px;
+  text-align: left;
+  color: #ffffff;
+}
+
+.button_more, #projects .button_projects, #pricing #tr_button td .button_buy, #signup .button_signup, #contact .button_send {
+  display: block;
+  float: left;
+  border-radius: 2.9px;
+  margin: 18px 3px;
+  padding-top: 16px;
+  text-align: center;
+  text-decoration: none;
+  font-family: Montserrat;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  font-size: 10.5px;
+  line-height: 0.67;
+  letter-spacing: normal;
+  color: #323232;
+  text-transform: uppercase;
+}
+
+.button_more:hover, #projects .button_projects:hover, #pricing #tr_button td .button_buy:hover, #signup .button_signup:hover, #contact .button_send:hover {
+  background-color: #62497c;
+  color: #ffffff;
+}
+
+.button_more {
+  width: 124px;
+  height: 24px;
+  background-color: #ffe26d;
+}
+
+h2 {
+  font-family: Montserrat;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  font-size: 44px;
+  letter-spacing: 0.4px;
+  text-align: center;
+  color: #040405;
+}
+
+h3 {
+  font-family: Montserrat;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  font-size: 14.5px;
+  line-height: 0.8;
+  letter-spacing: normal;
+  text-align: center;
+  color: #62497c;
+  text-transform: uppercase;
+}
+
+#welcome {
+  margin: 40px 351px 10px 351px;
+  float: left;
+}
+
+#welcome p {
+  width: 436px;
+  font-family: Roboto;
+  font-weight: 100;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  font-size: 29.5px;
+  text-align: left;
+  color: #040405;
+  float: left;
+}
+
+#welcome img {
+  margin-left: 64px;
+  margin-top: 12px;
+}
+
+#welcome .welcome_section {
+  border-bottom: 2px solid #e6e6e6;
+  float: left;
+  width: 100%;
+}
+
+#welcome .welcome_section p {
+  width: 156px;
+  font-family: Helvetica;
+  font-size: 13.5px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.44;
+  letter-spacing: normal;
+  text-align: center;
+  color: rgba(4, 4, 5, 0.5);
+  display: block;
+}
+
+#welcome .welcome_section .circle_drawer, #welcome .welcome_section .circle_bell, #welcome .welcome_section .circle_envelop {
+  position: relative;
+  width: 81px;
+  height: 81px;
+  margin: 25%;
+}
+
+#welcome .welcome_section .circle_drawer {
+  background: url(img/drawer-icon.png) 50% 50% no-repeat #62497c;
+}
+
+#welcome .welcome_section .circle_bell {
+  background: url(img/bell-icon.png) 50% 50% no-repeat #62497c;
+}
+
+#welcome .welcome_section .circle_envelop {
+  background: url(img/envelop-icon.png) 50% 50% no-repeat #62497c;
+}
+
+#welcome .welcome_section .welcome_section1, #welcome .welcome_section .welcome_section2, #welcome .welcome_section .welcome_section3 {
+  float: left;
+  padding: 0px 57px;
+  text-align: center;
+}
+
+#welcome .welcome_section .welcome_section1 {
+  padding-left: 0px;
+}
+
+#welcome .welcome_section .welcome_section3 {
+  padding-right: 0px;
+}
+
+#welcome .welcome_section .button {
+  margin: 135px -142px 92px -142px;
+  height: 24px;
+  float: left;
+}
+
+#projects {
+  float: left;
+  width: 100%;
+}
+
+#projects .projects_section1, #projects .projects_section2, #projects .projects_section3, #projects .projects_section4 {
+  float: left;
+  width: 300px;
+  margin-top: 10px;
+  padding: 10px 10px 25px 40px;
+  text-align: left;
+  background-color: #efefef;
+}
+
+#projects img {
+  margin-left: -40px;
+  margin-top: -10px;
+  margin-bottom: 30px;
+}
+
+#projects .button_projects {
+  margin-top: 10px;
+  width: 162px;
+  height: 24px;
+  background-color: #fefefe;
+}
+
+#projects h3 {
+  text-align: left;
+  color: #040405;
+}
+
+#projects p {
+  font-family: Helvetica;
+  font-size: 13.5px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.44;
+  letter-spacing: normal;
+  text-align: left;
+  color: rgba(4, 4, 5, 0.5);
+  display: block;
+}
+
+#pricing {
+  float: left;
+  margin: 40px 347px 10px 348px;
+}
+
+#pricing table {
+  border: 0px;
+}
+
+#pricing caption {
+  padding: 45px;
+  font-family: Montserrat;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  font-size: 44px;
+  line-height: 0.92;
+  letter-spacing: normal;
+  text-align: center;
+  color: #040405;
+}
+
+#pricing th {
+  width: 240px;
+  padding: 10px;
+  font-family: Montserrat;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  font-size: 14.5px;
+  line-height: 0.48;
+  letter-spacing: normal;
+  text-align: center;
+  color: #040405;
+}
+
+#pricing #tr_price td {
+  border-right: 2px solid #e6e6e6;
+  padding: 10px;
+  font-family: Montserrat;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  font-size: 14.5px;
+  font-weight: normal;
+  line-height: 0.48;
+  letter-spacing: normal;
+  text-align: center;
+  color: rgba(4, 4, 5, 0.39);
+}
+
+#pricing #tr_price td:nth-last-child(1) {
+  border: 0px;
+}
+
+#pricing #tr_data td {
+  border-right: 2px solid #e6e6e6;
+  padding: 10px;
+  font-family: Helvetica;
+  font-size: 10.5px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 2.1;
+  letter-spacing: normal;
+  text-align: center;
+  color: #040405;
+}
+
+#pricing #tr_data td:nth-last-child(1) {
+  border: 0px;
+}
+
+#pricing #tr_button td {
+  border-right: 2px solid #e6e6e6;
+  text-align: center;
+  padding-left: 71px;
+}
+
+#pricing #tr_button td:nth-last-child(1) {
+  border: 0px;
+}
+
+#pricing #tr_button td .button_buy {
+  width: 80px;
+  height: 18px;
+  background-color: #ffe26d;
+  padding-top: 10px;
+}
+
+#video {
+  width: 100%;
+  height: 783px;
+  float: left;
+  background-color: #62497c;
+  margin-top: 50px;
+}
+
+#video h2 {
+  padding-top: 35px;
+  color: #fefefe;
+}
+
+#video .video_section {
+  margin-left: -20%;
+  margin-right: -20%;
+  float: left;
+}
+
+#video .video_section1, #video .video_section2, #video .video_section3 {
+  float: left;
+  width: 500px;
+  height: 350px;
+  margin-top: 10px;
+  margin-left: 20px;
+  margin-right: 20px;
+  padding: 10px 10px 25px 40px;
+}
+
+#video .video_section1 {
+  background: url(img/video-image_1.png) no-repeat;
+  background-size: cover;
+}
+
+#video .video_section2 {
+  background: url(img/video-image_2.png) no-repeat;
+  background-size: cover;
+}
+
+#video .video_section3 {
+  background: url(img/video-image_3.png) no-repeat;
+  background-size: cover;
+}
+
+#team {
+  margin: 30px 301px 10px 301px;
+  width: 800px;
+  float: left;
+}
+
+#team .circle_team_1, #team .circle_team_2, #team .circle_team_3, #team .circle_team_4, #team .circle_team_5, #team .circle_team_6 {
+  border: 1px solid pink;
+  float: left;
+  width: 172px;
+  height: 172px;
+  margin: 5px 45px 135px 45px;
+}
+
+#life {
+  height: 781px;
+  margin-top: 60px;
+  width: 100%;
+  float: left;
+  background-color: #efefef;
+}
+
+#life h2 {
+  margin-top: 70px;
+}
+
+input {
+  border: 0px;
+  outline: none;
+  height: 48px;
+  border-radius: 2.9px;
+}
+
+#signup {
+  background-image: url(img/image_2.png);
+  background-size: cover;
+  width: 100%;
+  height: 327px;
+  float: left;
+}
+
+#signup h2 {
+  color: #ffffff;
+  margin-top: 48px;
+}
+
+#signup .button_signup {
+  width: 132px;
+  background-color: #ffe26d;
+  padding-top: 5px;
+}
+
+#blog {
+  float: left;
+  margin: 30px 301px 10px 301px;
+}
+
+#blog h2 {
+  margin-top: 48px;
+}
+
+#blog .blog_section1, #blog .blog_section2, #blog .blog_section3 {
+  float: left;
+  padding: 0px 27px;
+  width: 156px;
+  text-align: center;
+}
+
+#map {
+  width: 693px;
+  height: 660px;
+  float: left;
+}
+
+#contact {
+  width: 707px;
+  height: 660px;
+  float: left;
+  background-color: #ffe26d;
+}
+
+#contact h2, #contact h4 {
+  text-align: left;
+  padding-left: 45px;
+}
+
+#contact h4 {
+  font-family: Montserrat;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  font-size: 10.5px;
+  line-height: 0.67;
+  letter-spacing: normal;
+  color: #323232;
+  text-transform: uppercase;
+}
+
+#contact input, #contact textarea {
+  border: 0;
+  resize: none;
+  border-radius: 0;
+  width: 311px;
+  margin: 0px 45px;
+  border-bottom: 1px solid #dfdfdf;
+  border-right: 1px solid #dfdfdf;
+  height: 44px;
+}
+
+#contact input[name="Message"], #contact textarea[name="Message"] {
+  height: 145px;
+}
+
+#contact .button_send {
+  color: #ffffff;
+  background-color: #62497c;
+  padding-top: 5px;
+  border-radius: 0;
+  border: 0;
+  width: 313px;
+  margin: 20px 45px;
+  cursor: pointer;
+}
+
+footer {
+  height: 300px;
+  width: 100%;
+  float: left;
+}
+/*# sourceMappingURL=style.css.map */
