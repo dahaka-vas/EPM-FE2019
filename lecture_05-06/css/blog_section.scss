@@ -60,6 +60,7 @@ $section_num_blog: 3;
     width: 200px;
     text-align: center;
     margin-bottom: 60px;
+    outline: 0;
 
     &:first-child {
         margin-right: 35px;
@@ -69,7 +70,7 @@ $section_num_blog: 3;
         margin-left: 35px;
     }
 
-    &:hover {
+    &:focus {
         transition: transform 1.5s ease 0s;
         box-shadow: 0 0 4px 2px #ffa500;
         background-color: #fff;
