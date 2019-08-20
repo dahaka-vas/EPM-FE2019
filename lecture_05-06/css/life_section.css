@@ -1,0 +1,35 @@
+.life {
+  width: 100%;
+  background-color: #efefef;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.life img {
+  width: 100%;
+}
+
+.life .content_container {
+  margin: 35px 0px;
+}
+
+.life_scroller {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  height: 69px;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin: 5px 0px 70px 0px;
+}
+
+.life_scroller img {
+  width: 110px;
+  height: 69px;
+}
+/*# sourceMappingURL=life_section.css.map */

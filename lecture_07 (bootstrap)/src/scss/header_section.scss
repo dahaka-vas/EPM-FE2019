@@ -1,0 +1,128 @@
+.main_header {
+    justify-content: space-around;
+    position: absolute;
+    z-index: 1;
+    width: 98%;
+}
+
+.header_logo {
+    @extend %font_montserrat;
+    text-align: left;
+    color: #ffffff;
+    font-size: 29.5px;
+    line-height: 0.64;
+    letter-spacing: -2.96px;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.header_container {
+    margin-top: 41px;
+}
+
+#check_menu {
+    display: none;
+}
+
+.menu {
+    a {
+        @extend %font_montserrat;
+        text-align: left;
+        color: #ffffff;
+        font-size: 10.5px;
+        letter-spacing: normal;
+        text-decoration: none;
+        text-transform: uppercase;
+        transition: all 0.1s ease 0s;
+        display: inline-block;
+        padding: 7px;
+
+        &:hover {
+            color: #ffe26d;
+            transform: scale(1.2);
+        }
+    }
+}
+
+.menu li{
+    padding-left: 10px;
+    display: inline;
+    text-align: right;
+}
+
+.header_slider {
+    background-image: url(img/image.png);
+    background-size: cover;
+    height: 693px;
+    justify-content: space-around;
+    align-items: flex-end;
+    overflow: hidden;
+
+    .content_container {
+        height: 73%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+}
+
+.header_h2 {
+    max-width: 490px;
+    @extend %font_montserrat;
+    text-align: left;
+    color: #ffffff;
+    font-size: 40.5px;
+    line-height: normal;
+    letter-spacing: normal;
+    animation-name: show_h2;
+    animation-duration: 1.5s;
+    padding-bottom: 25px;
+}
+
+.header_p {
+    max-width: 440px;
+    @include font_roboto;
+    font-weight: 100;
+    font-size: 19px;
+    text-align: left;
+    color: #ffffff;
+    animation-name: show_p;
+    animation-duration: 3s;
+    padding-bottom: 25px;
+}
+
+.slider_container {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+
+
+
+
+
+        .button_more {
+            animation-name: show_b;
+            animation-duration: 4.5s;
+        }
+
+}
+
+.slider_dot {
+    margin-bottom: 25px;
+    margin-right: 6px;
+    float: left;
+    width: 8px;
+    height: 8px;
+    @extend %circle;
+    opacity: 0.5;
+    background-color: #ffffff;
+
+    &:hover {
+        opacity: 0.8;
+        cursor: pointer;
+    }
+}
+
+.active_dot {
+    opacity: 1;
+}

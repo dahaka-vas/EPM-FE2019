@@ -1,0 +1,77 @@
+// @import 'fonts.scss';
+
+.welcome {
+    padding-top: 80px;
+
+    h2 {
+        padding-bottom: 50px;
+    }
+
+    img {
+        margin: -9px 9px;
+        float: right;
+    }
+}
+
+.welcome_p {
+    max-width: 436px;
+    display: inline-block;
+    @include font_roboto;
+    font-weight: 100;
+    font-size: 29.5px;
+    text-align: left;
+    color: #040405;
+}
+
+%p_text {
+    font-family: Helvetica;
+    font-size: 13.5px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.44;
+    letter-spacing: normal;
+    color: #04040580;
+}
+
+.welcome_section_container {
+    justify-content: space-between;
+    border-bottom: 2px solid #e6e6e6;
+
+    p {
+        @extend %p_text;
+        width: 156px;
+        text-align: center;
+        display: block;
+    }
+}
+
+%circle {
+    border-radius: 50%;
+}
+
+%circle_welcome {
+    width: 81px;
+    height: 81px;
+    margin-bottom: 20px;
+    @extend %circle;
+}
+
+@each $img in drawer, bell, envelop {
+    .circle_#{$img} {
+        @extend %circle_welcome;
+        background: url(img/#{$img}-icon.png) 50% 50% no-repeat #62497c;
+    }
+}
+
+$section_num_welcome: 3;
+
+@for $i from 1 through $section_num_welcome {
+    .welcome_section#{$i} {
+        padding: 65px 0px 35px 0px;
+        display: flex;
+        justify-content: space-around;
+        flex-direction: column;
+        align-items: center;
+    }
+}
