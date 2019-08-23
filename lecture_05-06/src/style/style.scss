@@ -1,0 +1,36 @@
+@import "../scss/common/index.scss";
+@import "../scss/components/index.scss";
+
+body, html {
+    margin: 0px;
+    padding: 0px;
+}
+
+.h2 {
+    @extend %font_montserrat;
+    font-size: 44px;
+    letter-spacing: 0.4px;
+    text-align: center;
+    color: #040405;
+}
+
+.h3 {
+    @extend %font_montserrat;
+    font-size: 14.5px;
+    line-height: 0.8;
+    letter-spacing: normal;
+    text-align: center;
+    color: #62497c;
+    text-transform: uppercase;
+  }
+
+.body_wrapper {
+    position: relative;
+    margin: 0px auto;
+    width: 1400px;
+    background-color: #fefefe;
+}
+
+.header_container, .content_container, .slider_container, .welcome_section_container {
+    width: 700px;
+}

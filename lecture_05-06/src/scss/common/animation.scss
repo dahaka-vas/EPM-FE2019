@@ -1,0 +1,109 @@
+.slider_container {
+    .content_container {
+        h2 {
+            animation-name: show_h2;
+            animation-duration: 1.5s;
+        }
+
+        p {
+            animation-name: show_p;
+            animation-duration: 3s;
+        }
+
+        .button_more {
+            animation-name: show_b;
+            animation-duration: 4.5s;
+        }
+    }
+}
+
+@keyframes show_h2 {
+    0% {
+        transform: translateY(-500px);
+    }
+}
+
+@keyframes show_p {
+    0%, 50% {
+        transform: translateX(-900px);
+    }
+}
+
+@keyframes show_b {
+    0%, 75% {
+        transform: translateY(500px);
+    }
+}
+
+.pricing_section {
+    &:hover {
+        transition: transform 1.5s ease 0s;
+        transform: scale(1.1) rotate3D(0, 1, 0, 360deg);
+    }
+}
+
+.play {
+    &:focus {
+        animation-name: heart_beat;
+        animation-duration: 1.2s;
+        animation-timing-function: ease;
+        animation-iteration-count: infinite;
+    }
+}
+
+@keyframes heart_beat {
+    0% {
+        transform: scale(1);
+    }
+    15% {
+        transform: scale(1.2);
+    }
+    25% {
+        transform: scale(1.1);
+    }
+    35% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.section_blog {
+    transition: all 1.2s ease 0s;
+    &:focus {
+        transform: translate3d(0%, -70%, -5000px) scale(16);
+    }
+}
+
+.social_ul {
+    li {
+        &:hover {
+            transition: all 2s ease 0s;
+            transform: rotateX(360deg);
+        }
+    }
+}
+
+.circle_team {
+    &:hover {
+        &:before {
+            animation-name: show_team;
+            animation-duration: 1s;
+        }
+    }
+}
+@keyframes show_team {
+    0% {
+        transform: scale(0);
+    }
+    25% {
+        transform: scale(1);
+    }
+    55% {
+        transform: scale(0.3);
+    }
+    100% {
+        transform: scale(1);
+    }
+}

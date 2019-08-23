@@ -1,0 +1,98 @@
+@media (max-width: 768px) {
+  .main_header {
+    width: 95%;
+  }
+  .welcome_p {
+    max-width: 325px;
+    font-size: 3.5vw;
+  }
+  .header_h2 {
+    font-size: 5vw;
+  }
+  .video_section {
+    margin-left: -25vw;
+  }
+  .pricing_section {
+    border: 0;
+  }
+  .menu li {
+    display: block;
+    text-align: right;
+    padding-right: 5vw;
+  }
+  .header_menu {
+    top: -12px;
+    width: 200px;
+  }
+  .header_logo {
+    margin-left: 3vw;
+  }
+  .header_slider .content_container {
+    height: 65%;
+    padding-left: 3vw;
+  }
+}
+
+@media (min-width: 700px) {
+  .pricing_section {
+    border-right: 1px solid #e6e6e6;
+    border-left: 1px solid #e6e6e6;
+  }
+  .pricing_section:nth-last-child(1) {
+    border-right: 0px;
+  }
+  .pricing_section:nth-child(1) {
+    border-left: 0px;
+  }
+  .blog_section:focus {
+    -webkit-transition: -webkit-transform 1.5s ease 0s;
+    transition: -webkit-transform 1.5s ease 0s;
+    transition: transform 1.5s ease 0s;
+    transition: transform 1.5s ease 0s, -webkit-transform 1.5s ease 0s;
+    -webkit-box-shadow: 0 0 4px 2px #ffa500;
+            box-shadow: 0 0 4px 2px #ffa500;
+    background-color: #fff;
+    -webkit-transform: translate3d(0%, -70%, -5000px) scale(16);
+            transform: translate3d(0%, -70%, -5000px) scale(16);
+    cursor: pointer;
+    z-index: 2;
+  }
+}
+
+@media (max-width: 576px) {
+  .project_section {
+    max-width: 290px;
+  }
+  .header_h2 {
+    font-size: 25px;
+  }
+  .welcome_p {
+    max-width: 280px;
+    font-size: 20px;
+  }
+  .video_section {
+    margin-left: -40vw;
+  }
+  .team_section {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .signup_form {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: end;
+        -ms-flex-align: end;
+            align-items: flex-end;
+  }
+  .signup_form .signup_form_item {
+    max-width: 70vmin;
+    margin: 2px 0;
+  }
+  .contact_input, .button_send {
+    width: 60vw;
+  }
+}
+/*# sourceMappingURL=media.css.map */
