@@ -11,7 +11,7 @@ body, html {
     font-size: 44px;
     letter-spacing: 0.4px;
     text-align: center;
-    color: #040405;
+    color: $black;
 }
 
 .h3 {
@@ -20,7 +20,7 @@ body, html {
     line-height: 0.8;
     letter-spacing: normal;
     text-align: center;
-    color: #62497c;
+    color: $purple;
     text-transform: uppercase;
   }
 
@@ -28,7 +28,7 @@ body, html {
     position: relative;
     margin: 0px auto;
     width: 1400px;
-    background-color: #fefefe;
+    background-color: $light-grey;
 }
 
 .header_container, .content_container, .slider_container, .welcome_section_container {
