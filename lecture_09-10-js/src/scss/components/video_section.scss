@@ -1,0 +1,77 @@
+.video {
+    overflow: hidden;
+    background-color: $purple;
+    padding: 60px 0px 90px 0px;
+    margin-top: 56px;
+
+    h2{
+        color: $light-grey;
+    }
+}
+
+.video_section {
+    width: 2140px;
+    margin-left: -19.5vw;
+}
+
+.video_section_container {
+    width: 690px;
+    margin: 0px 1vw;
+}
+
+$section_num_video: 3;
+
+%sections_video {
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    height: 461px;
+
+    &:hover {
+        &:before {
+            content: '';
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            background-color: #00000080;
+        }
+    }
+}
+
+.play {
+    z-index: 1;
+    background-color: transparent;
+    @extend %circle;
+    border: 0;
+    cursor:pointer;
+    overflow: hidden;
+    outline:none;
+    &:focus {
+        animation-name: heart_beat;
+        animation-duration: 1.2s;
+        animation-timing-function: ease;
+        animation-iteration-count: infinite;
+    }
+}
+
+
+
+@for $i from 1 through $section_num_video {
+    .video_preview#{$i} {
+        @extend %sections_video;
+        background: url(../img/video-image_#{$i}.png) no-repeat;
+        background-size: cover;
+    }
+}
+
+.video_info {
+    justify-content: space-between;
+    padding: 30px 0px;
+    @extend %font_montserrat;
+    font-size: 10.5px;
+    line-height: 0.67;
+    letter-spacing: normal;
+    text-align: left;
+    color: $light-grey;
+    text-transform: uppercase;
+}

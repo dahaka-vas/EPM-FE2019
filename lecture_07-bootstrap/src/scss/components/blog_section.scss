@@ -1,0 +1,52 @@
+.blog {
+    h2 {
+        margin-top: 60px;
+    }
+
+    h3 {
+        padding: 5px;
+        color: $black;
+        line-height: 1.3;
+    }
+}
+
+.b_button {
+    .button_more{
+    margin: 25px auto;
+    }
+}
+
+%blog_txt {
+    font-family: Helvetica;
+    font-size: 13.5px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.74;
+    letter-spacing: normal;
+    text-align: center;
+}
+
+.blog_p {
+    @extend %blog_txt;
+    color: $black;
+}
+
+.blog_date {
+    @extend %blog_txt;
+    color: #04040580;
+  }
+
+.blog_section_perspective {
+    perspective: 400px;
+}
+
+.blog_section {
+    width: 206px;
+    text-align: center;
+    margin: 50px 0px;
+    flex-direction: column;
+    img {
+        width: 100%;
+    }
+}

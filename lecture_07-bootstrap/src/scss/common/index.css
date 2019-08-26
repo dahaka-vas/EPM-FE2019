@@ -6,10 +6,8 @@
 }
 
 .button_more, .button_projects, .button_buy, .button_signup, .button_send {
-  display: inline-block;
-  border-radius: 2.9px;
-  margin: 18px 3px;
-  text-align: center;
+  display: block;
+  padding-top: 16px;
   text-decoration: none;
   font-size: 10.5px;
   line-height: 0.67;
@@ -26,23 +24,22 @@
 }
 
 .button_more {
-  padding: 16px 25px 0px;
-  height: 24px;
+  width: 124px;
+  height: 42px;
   background-color: #ffe26d;
 }
 
 .button_projects {
   width: 162px;
-  padding-top: 16px;
-  height: 24px;
+  height: 42px;
   background-color: #fefefe;
 }
 
 .button_buy {
-  padding: 0px 28px;
-  height: 18px;
+  width: 80px;
+  height: 32px;
   background-color: #ffe26d;
-  padding-top: 10px;
+  padding-top: 12px;
   text-transform: uppercase;
 }
 
@@ -55,7 +52,7 @@
 .scroller_button {
   position: relative;
   width: 31px;
-  background-color: #040405;
+  background-color: #2a2a2a;
   border: 0px;
   outline: none;
   cursor: pointer;
@@ -74,7 +71,7 @@
   position: absolute;
   top: 0px;
   left: 0px;
-  background: url(../img/left-arrow.png) 50% 50% no-repeat;
+  background: url(img/left-arrow.png) 50% 50% no-repeat;
 }
 
 .scroller_right:before {
@@ -84,7 +81,7 @@
   position: absolute;
   top: 0px;
   left: 0px;
-  background: url(../img/right-arrow.png) 50% 50% no-repeat;
+  background: url(img/right-arrow.png) 50% 50% no-repeat;
 }
 
 .button_send {
@@ -93,31 +90,10 @@
   padding-top: 5px;
   border-radius: 0;
   border: 0;
-  width: 313px;
+  width: 306px;
   margin: 0px 45px;
   cursor: pointer;
   height: 42px;
-}
-
-.slider_container .content_container h2 {
-  -webkit-animation-name: show_h2;
-          animation-name: show_h2;
-  -webkit-animation-duration: 1.5s;
-          animation-duration: 1.5s;
-}
-
-.slider_container .content_container p {
-  -webkit-animation-name: show_p;
-          animation-name: show_p;
-  -webkit-animation-duration: 3s;
-          animation-duration: 3s;
-}
-
-.slider_container .content_container .button_more {
-  -webkit-animation-name: show_b;
-          animation-name: show_b;
-  -webkit-animation-duration: 4.5s;
-          animation-duration: 4.5s;
 }
 
 @-webkit-keyframes show_h2 {
@@ -160,26 +136,6 @@
     -webkit-transform: translateY(500px);
             transform: translateY(500px);
   }
-}
-
-.pricing_section:hover {
-  -webkit-transition: -webkit-transform 1.5s ease 0s;
-  transition: -webkit-transform 1.5s ease 0s;
-  transition: transform 1.5s ease 0s;
-  transition: transform 1.5s ease 0s, -webkit-transform 1.5s ease 0s;
-  -webkit-transform: scale(1.1) rotate3D(0, 1, 0, 360deg);
-          transform: scale(1.1) rotate3D(0, 1, 0, 360deg);
-}
-
-.play:focus {
-  -webkit-animation-name: heart_beat;
-          animation-name: heart_beat;
-  -webkit-animation-duration: 1.2s;
-          animation-duration: 1.2s;
-  -webkit-animation-timing-function: ease;
-          animation-timing-function: ease;
-  -webkit-animation-iteration-count: infinite;
-          animation-iteration-count: infinite;
 }
 
 @-webkit-keyframes heart_beat {
@@ -226,23 +182,6 @@
     -webkit-transform: scale(1);
             transform: scale(1);
   }
-}
-
-.section_blog {
-  -webkit-transition: all 1.2s ease 0s;
-  transition: all 1.2s ease 0s;
-}
-
-.section_blog:focus {
-  -webkit-transform: translate3d(0%, -70%, -5000px) scale(16);
-          transform: translate3d(0%, -70%, -5000px) scale(16);
-}
-
-.social_ul li:hover {
-  -webkit-transition: all 2s ease 0s;
-  transition: all 2s ease 0s;
-  -webkit-transform: rotateX(360deg);
-          transform: rotateX(360deg);
 }
 
 .circle_team:hover:before {

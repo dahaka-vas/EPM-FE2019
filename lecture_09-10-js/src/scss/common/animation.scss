@@ -1,0 +1,59 @@
+@keyframes show_h2 {
+    0% {
+        transform: translateY(-500px);
+    }
+}
+
+@keyframes show_p {
+    0%, 50% {
+        transform: translateX(-900px);
+    }
+}
+
+@keyframes show_b {
+    0%, 75% {
+        transform: translateY(500px);
+    }
+}
+
+@keyframes heart_beat {
+    0% {
+        transform: scale(1);
+    }
+    15% {
+        transform: scale(1.2);
+    }
+    25% {
+        transform: scale(1.1);
+    }
+    35% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.circle_team {
+    &:hover {
+        &:before {
+            animation-name: show_team;
+            animation-duration: 1s;
+        }
+    }
+}
+
+@keyframes show_team {
+    0% {
+        transform: scale(0);
+    }
+    25% {
+        transform: scale(1);
+    }
+    55% {
+        transform: scale(0.3);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
