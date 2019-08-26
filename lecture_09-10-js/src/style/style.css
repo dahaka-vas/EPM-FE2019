@@ -1192,4 +1192,13 @@ h3 {
   color: #62497c;
   text-transform: uppercase;
 }
+
+.badge-yellow {
+  font-size: 0.9em;
+  background-color: #ffe26d;
+}
+
+.badge {
+  font-size: 0.9em;
+}
 /*# sourceMappingURL=style.css.map */

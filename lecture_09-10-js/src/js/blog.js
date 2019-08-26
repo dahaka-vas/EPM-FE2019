@@ -1,44 +1,38 @@
-const posts=[];
-
-function getRandom (max) {
-    return Math.floor (Math.random() * max) + 1;
+function getRandom (min, max) {
+    return Math.floor (Math.random() * max) + min;
 }
 
-// function getArray (length, element) {
-//     let arr=[];
-//     for (let i=1; i<length; i++) {
-//         arr.push (element);
-//     }
-//     return arr;
-// }
-
-function getRatingsArray () {
-    let arr=[];
-    for (let i=1; i<=10; i++) {
-        arr.push (getRandom (1000));
+function getArray (length, fn) {
+    let newArr=[];
+    for (let i=1; i<=length; i++) {
+        newArr.push (fn(i));
     }
-    return arr;
+    return newArr;
 }
 
-function getTopicsArray () {
-    let arr=[];
-    for (let i=1; i<=getRandom(20); i++) {
-        arr.push ('#topic' + i);
+const topics = getArray(20, function (i) {
+    return '#topic' + i;
+});
+
+function getTopicArray (length, arr) {
+    let newArr=[];
+    let l=length;
+    for (let i=0; i<length; i++, l--) {
+        newArr = newArr.concat (arr.splice (getRandom(1, l), 1));
     }
-    return arr;
+    return newArr;
 }
 
-for (let i=1; i<=30; i++) {
-    posts.push ( {
-        Id: i,
-        // Ratings: getArray (10, getRandom (1000)),
-        // Topics: getArray (getRandom(20), ('#topic' + i)),
-        Ratings: getRatingsArray (),
-        Topics: getTopicsArray (),
-        Title: 'Title ' + i
-        }
-    );
-}
+const posts = getArray (30, function (i) {
+    return {
+        id: i,
+        ratings: getArray(10, function () {
+            return getRandom (1, 1e3);
+        }),
+        topics: getTopicArray (getRandom(1, 20), topics.slice()),
+        title: 'Title ' + i
+    };
+});
 
 function avgRating (r) {
     r = Math.floor (r.reduce (function (sum, current) {
@@ -48,12 +42,12 @@ function avgRating (r) {
 }
 
 posts.sort (function (a, b) {
-    return avgRating(b.Ratings) - avgRating(a.Ratings);
-}
-);
+    return avgRating(b.ratings) - avgRating(a.ratings);
+});
 
-for (let i=0; i<3; i++) {
-    document.querySelectorAll ('.blog_section > h3')[i].innerHTML = posts[i].Title;
-    document.querySelectorAll ('.blog_section > .rating')[i].innerHTML = 'Rating: ' + avgRating(posts[i].Ratings);
-    document.querySelectorAll ('.blog_section > .topics')[i].innerHTML = posts[i].Topics.join(' ');
-}
+posts.slice(0, 3).forEach (function (item, i) {
+    document.querySelectorAll ('.blog_section > .blog_h3')[i].innerHTML = item.title;
+    document.querySelectorAll ('.blog_section > .rating')[i].innerHTML = 'Rating: ' + avgRating(item.ratings).toFixed(1);
+    document.querySelectorAll ('.blog_section > .topics')[i].innerHTML = '<span class="badge badge-secondary">' +
+                                                                        item.topics.join('</span> <span class="badge badge-secondary">') + '</span>';
+});

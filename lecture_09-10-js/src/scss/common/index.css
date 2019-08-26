@@ -71,7 +71,7 @@
   position: absolute;
   top: 0px;
   left: 0px;
-  background: url(img/left-arrow.png) 50% 50% no-repeat;
+  background: url(../img/left-arrow.png) 50% 50% no-repeat;
 }
 
 .scroller_right:before {
@@ -81,7 +81,7 @@
   position: absolute;
   top: 0px;
   left: 0px;
-  background: url(img/right-arrow.png) 50% 50% no-repeat;
+  background: url(../img/right-arrow.png) 50% 50% no-repeat;
 }
 
 .button_send {
