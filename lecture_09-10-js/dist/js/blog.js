@@ -5,7 +5,7 @@ var blogCol = 3,        // количество выводимых статей 
 ;
 
 function getRandom (min, max) {
-    return Math.floor (Math.random() * max) + min;
+    return Math.floor (Math.random() * (max - min)) + min;
 }
 
 function avgRating (r) {
