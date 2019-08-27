@@ -12,7 +12,7 @@
 }
 
 .team_member_info {
-    max-width: 172px;
+    // max-width: 172px;
     text-align: center;
     margin: 30px auto;
 }
@@ -20,8 +20,8 @@
 .circle_team {
     position: relative;
     overflow: hidden;
-    width: 172px;
-    height: 172px;
+    max-width: 172px;
+    // height: 172px;
     @extend %circle;
     margin: 0 auto;
     margin-bottom: 40px;

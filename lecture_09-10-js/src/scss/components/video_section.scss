@@ -59,7 +59,7 @@ $section_num_video: 3;
 @for $i from 1 through $section_num_video {
     .video_preview#{$i} {
         @extend %sections_video;
-        background: url(../img/video-image_#{$i}.png) no-repeat;
+        background: url(../assets/img/video-image_#{$i}.png) no-repeat;
         background-size: cover;
     }
 }

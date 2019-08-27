@@ -2,11 +2,14 @@
 @import "../scss/components/index.scss";
 @import '../scss/media.scss';
 
+// div, section {
+//   outline: 2px solid blue;
+// }
 
 body, html {
   margin: 0px auto;
   padding: 0px;
-  outline: 3px solid red;
+  // outline: 3px solid red;
   width: 100%;
 }
 
@@ -15,6 +18,11 @@ body, html {
   max-width: 1430px;
   margin: 0px auto;
   background-color: $light-grey;
+}
+
+.container {
+  padding-right: 0px;
+  padding-left: 0px;
 }
 
 .content_container {

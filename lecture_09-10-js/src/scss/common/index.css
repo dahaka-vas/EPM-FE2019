@@ -71,7 +71,7 @@
   position: absolute;
   top: 0px;
   left: 0px;
-  background: url(../img/left-arrow.png) 50% 50% no-repeat;
+  background: url(../assets/img/left-arrow.png) 50% 50% no-repeat;
 }
 
 .scroller_right:before {
@@ -81,7 +81,7 @@
   position: absolute;
   top: 0px;
   left: 0px;
-  background: url(../img/right-arrow.png) 50% 50% no-repeat;
+  background: url(../assets/img/right-arrow.png) 50% 50% no-repeat;
 }
 
 .button_send {
@@ -231,8 +231,8 @@
 
 @font-face {
   font-family: 'icomoon';
-  src: url("../fonts/icomoon.eot?saxd5b");
-  src: url("../fonts/icomoon.eot?saxd5b#iefix") format("embedded-opentype"), url("../fonts/icomoon.ttf?saxd5b") format("truetype"), url("../fonts/icomoon.woff?saxd5b") format("woff"), url("../fonts/icomoon.svg?saxd5b#icomoon") format("svg");
+  src: url("../assets/fonts/icomoon.eot?saxd5b");
+  src: url("../assets/fonts/icomoon.eot?saxd5b#iefix") format("embedded-opentype"), url("../assets/fonts/icomoon.ttf?saxd5b") format("truetype"), url("../assets/fonts/icomoon.woff?saxd5b") format("woff"), url("../assets/fonts/icomoon.svg?saxd5b#icomoon") format("svg");
   font-weight: normal;
   font-style: normal;
 }

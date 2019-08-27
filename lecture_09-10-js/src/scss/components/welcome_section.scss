@@ -60,7 +60,7 @@
 @each $img in drawer, bell, envelop {
     .circle_#{$img} {
         @extend %circle_welcome;
-        background: url(../img/#{$img}-icon.png) 50% 50% no-repeat $purple;
+        background: url(../assets/img/#{$img}-icon.png) 50% 50% no-repeat $purple;
     }
 }
 

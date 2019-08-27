@@ -71,7 +71,7 @@
   position: absolute;
   top: 0px;
   left: 0px;
-  background: url(../img/left-arrow.png) 50% 50% no-repeat;
+  background: url(../assets/img/left-arrow.png) 50% 50% no-repeat;
 }
 
 .scroller_right:before {
@@ -81,7 +81,7 @@
   position: absolute;
   top: 0px;
   left: 0px;
-  background: url(../img/right-arrow.png) 50% 50% no-repeat;
+  background: url(../assets/img/right-arrow.png) 50% 50% no-repeat;
 }
 
 .button_send {
@@ -231,8 +231,8 @@
 
 @font-face {
   font-family: 'icomoon';
-  src: url("../fonts/icomoon.eot?saxd5b");
-  src: url("../fonts/icomoon.eot?saxd5b#iefix") format("embedded-opentype"), url("../fonts/icomoon.ttf?saxd5b") format("truetype"), url("../fonts/icomoon.woff?saxd5b") format("woff"), url("../fonts/icomoon.svg?saxd5b#icomoon") format("svg");
+  src: url("../assets/fonts/icomoon.eot?saxd5b");
+  src: url("../assets/fonts/icomoon.eot?saxd5b#iefix") format("embedded-opentype"), url("../assets/fonts/icomoon.ttf?saxd5b") format("truetype"), url("../assets/fonts/icomoon.woff?saxd5b") format("woff"), url("../assets/fonts/icomoon.svg?saxd5b#icomoon") format("svg");
   font-weight: normal;
   font-style: normal;
 }
@@ -327,7 +327,7 @@ i {
 }
 
 .header_slider {
-  background-image: url(../img/image.png);
+  background-image: url(../assets/img/image.png);
   background-size: cover;
   height: 693px;
   -ms-flex-pack: distribute;
@@ -485,15 +485,15 @@ i {
 }
 
 .circle_drawer {
-  background: url(../img/drawer-icon.png) 50% 50% no-repeat #62497c;
+  background: url(../assets/img/drawer-icon.png) 50% 50% no-repeat #62497c;
 }
 
 .circle_bell {
-  background: url(../img/bell-icon.png) 50% 50% no-repeat #62497c;
+  background: url(../assets/img/bell-icon.png) 50% 50% no-repeat #62497c;
 }
 
 .circle_envelop {
-  background: url(../img/envelop-icon.png) 50% 50% no-repeat #62497c;
+  background: url(../assets/img/envelop-icon.png) 50% 50% no-repeat #62497c;
 }
 
 .welcome_section1 {
@@ -605,17 +605,17 @@ i {
 }
 
 .video_preview1 {
-  background: url(../img/video-image_1.png) no-repeat;
+  background: url(../assets/img/video-image_1.png) no-repeat;
   background-size: cover;
 }
 
 .video_preview2 {
-  background: url(../img/video-image_2.png) no-repeat;
+  background: url(../assets/img/video-image_2.png) no-repeat;
   background-size: cover;
 }
 
 .video_preview3 {
-  background: url(../img/video-image_3.png) no-repeat;
+  background: url(../assets/img/video-image_3.png) no-repeat;
   background-size: cover;
 }
 
@@ -665,6 +665,10 @@ i {
 
 .project_img {
   position: relative;
+}
+
+.project_img img {
+  width: 100%;
 }
 
 .project_section {
@@ -784,7 +788,6 @@ i {
 }
 
 .team_member_info {
-  max-width: 172px;
   text-align: center;
   margin: 30px auto;
 }
@@ -792,8 +795,7 @@ i {
 .circle_team {
   position: relative;
   overflow: hidden;
-  width: 172px;
-  height: 172px;
+  max-width: 172px;
   margin: 0 auto;
   margin-bottom: 40px;
 }
@@ -887,7 +889,7 @@ i {
 }
 
 .signup {
-  background-image: url(../img/image_2.png);
+  background-image: url(../assets/img/image_2.png);
   background-size: cover;
   padding-bottom: 145px;
   position: relative;
@@ -1067,6 +1069,7 @@ i {
   .welcome_p {
     max-width: 325px;
     font-size: 3.5vw;
+    margin-left: 3vw;
   }
   .header_h2 {
     font-size: 5vw;
@@ -1080,7 +1083,7 @@ i {
   .menu li {
     display: block;
     text-align: right;
-    padding-right: 5vw;
+    padding-right: 3vw;
   }
   .header_menu {
     top: -12px;
@@ -1092,6 +1095,12 @@ i {
   .header_slider .content_container {
     height: 65%;
     padding-left: 3vw;
+  }
+  .contacts {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: column-reverse;
+            flex-direction: column-reverse;
   }
 }
 
@@ -1122,9 +1131,6 @@ i {
 }
 
 @media (max-width: 576px) {
-  .project_section {
-    max-width: 290px;
-  }
   .header_h2 {
     font-size: 25px;
   }
@@ -1161,7 +1167,6 @@ i {
 body, html {
   margin: 0px auto;
   padding: 0px;
-  outline: 3px solid red;
   width: 100%;
 }
 
@@ -1170,6 +1175,11 @@ body, html {
   max-width: 1430px;
   margin: 0px auto;
   background-color: #fefefe;
+}
+
+.container {
+  padding-right: 0px;
+  padding-left: 0px;
 }
 
 .content_container {
