@@ -1,0 +1,44 @@
+.signup_form_item {
+  border: 0px;
+  display: inline-block;
+  border-radius: 2.9px;
+  margin: 0px;
+}
+
+.signup_form_item[type="email"] {
+  width: 414px;
+  height: 48px;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  padding-left: 10px;
+}
+
+.signup_form_item[type="submit"] {
+  min-width: 100px;
+  cursor: pointer;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  height: 50px;
+}
+
+.signup_form {
+  margin: 40px auto;
+  margin-left: 5vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 70vmin;
+}
+
+.signup {
+  background-image: url(../assets/img/image_2.png);
+  background-size: cover;
+  padding-bottom: 145px;
+  position: relative;
+}
+
+.signup h2 {
+  color: #fff;
+  margin-top: 48px;
+}
+/*# sourceMappingURL=signup_section.css.map */
