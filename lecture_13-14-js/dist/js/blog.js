@@ -24,11 +24,11 @@ function render (data, selector, blogCol = 3) {
     });
 }
 
-function getDataFromServerApi (url) {
+function getDataFromServerApi (url, selector) {
     fetch(url)
     .then(response => response.json())
-    .then(data => render(data, 'blog-1_section'))
+    .then(data => render(data, selector))
     .catch(error => alert(error));
 }
 
-const blogPosts = getDataFromServerApi ('https://my-json-server.typicode.com/dahaka-vas/EPM-FE2019/posts');
+const blogPosts = getDataFromServerApi ('https://my-json-server.typicode.com/dahaka-vas/EPM-FE2019/posts', 'blog-1_section');
