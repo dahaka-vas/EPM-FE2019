@@ -24,7 +24,11 @@ function render (data, selector, blogCol = 3) {
     });
 }
 
-const posts = fetch('https://my-json-server.typicode.com/dahaka-vas/EPM-FE2019/posts')
-.then(response => response.json())
-.then(data => render(data, 'blog-1_section'))
-.catch(error => alert(error));
+function getDataFromServerApi (url) {
+    fetch(url)
+    .then(response => response.json())
+    .then(data => render(data, 'blog-1_section'))
+    .catch(error => alert(error));
+}
+
+const blogPosts = getDataFromServerApi ('https://my-json-server.typicode.com/dahaka-vas/EPM-FE2019/posts');
