@@ -7,17 +7,18 @@ function avgRating (r) {
     return r;
 }
 
-function Renderable (data) {
-    _data = data;
-    this.data = _data;
+//      -----------     //
 
-    this.avgRatingSort = function () {
-        _data.map((item, i) => item.avgRating = avgRating (_data[i].ratings));
-        _data.sort((a, b) => b.avgRating - a.avgRating);
-    }
+function Renderable () {}
 
-    this.render = function (selector, renderCol = 3) {
-        _data.slice(0, renderCol).forEach((item, i) => {
+Object.assign(Renderable.prototype, {
+    avgRatingSort () {
+        posts.map((item, i) => item.avgRating = avgRating (posts[i].ratings));
+        posts.sort((a, b) => b.avgRating - a.avgRating);
+    },
+
+    render (selector, renderCol = 3) {
+        posts.slice(0, renderCol).forEach((item, i) => {
             const renderTopics = document.createElement('div');
             renderTopics.innerHTML = '<span class="badge badge-secondary">' +
                                     item.topics.join('</span> <span class="badge badge-secondary">') +
@@ -29,19 +30,16 @@ function Renderable (data) {
             document.querySelectorAll ('.' + selector + ' > .topics')[i].append(renderTopics);
         });
     }
+})
 
-    return this;
+function Blog (posts) {
+    this.posts = posts;
 }
 
-function Blog (data) {
-    Blog.prototype = Renderable(data);
-}
+Object.assign(Blog.prototype, Renderable.prototype);
 
 
-// console.log (new Blog([1,2,3]));
-// console.log (new Blog([1,2,3]).data);
-// console.log (new Blog([1,2,3]).dat);
-
+console.log (new Blog([1,2,3]));
 
 function getDataFromServerApi (url,) {
     data = fetch(url)
@@ -60,11 +58,13 @@ function getDataFromServerApi (url,) {
 // });
 
 const blogPosts = getDataFromServerApi('https://my-json-server.typicode.com/dahaka-vas/EPM-FE2019/posts')
-.then(data => data)
+// .then(data => data)
 .then(data => {
     console.log(data);
-    const _data = new Blog(data);
-    console.log(_data.data);
+    const _data = new Blog([{"id":1,"ratings":[456,683,11,942,198,911,594,828,631,532],"topics":["#topic2","#topic1","#topic3","#topic5","#topic4","#topic6","#topic8","#topic7","#topic9","#topic13","#topic10","#topic11","#topic14"],"title":"Title 1"},{"id":2,"ratings":[262,895,952,155,158,725,914,33,922,589],"topics":["#topic2","#topic4","#topic1","#topic5","#topic3","#topic8","#topic6","#topic14","#topic10","#topic7","#topic13","#topic9","#topic11","#topic12","#topic19","#topic17","#topic15"],"title":"Title 2"}]);
+    console.log(_data.posts);
+    var blog=new Blog;
+    console.log(blog)
     _data.avgRatingSort();
     _data.render('blog-1_section');
 });
