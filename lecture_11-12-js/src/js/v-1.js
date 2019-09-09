@@ -2,6 +2,11 @@ function getRandom (min, max) {
         return Math.floor (Math.random() * (max - min + 1)) + min;
     }
 
+function avgRating (r) {
+    r = Math.floor (r.reduce ((sum, current) => sum + current) / 100) / 10;
+    return r;
+}
+
 function Blog () {
     const   topicsNum = 20,     // общее количество топиков (тегов)
             postsNum = 30,      // общее количество постов
@@ -21,32 +26,35 @@ function Blog () {
     });
 }
 
-Blog.prototype = {
-    render: function (selector) {
-        const blogCol = 3;        // количество выводимых статей в блоке Blog
+function Renderable () {}
 
-        this.posts.map((item, i) => item.avgRating = avgRating(this.posts[i].ratings));
-        this.posts.sort ((a, b) => b.avgRating - a.avgRating);
+Object.assign(Renderable.prototype, {
+    avgRatingSort () {
+        this.posts.map((item, i) => item.avgRating = avgRating (this.posts[i].ratings));
+        this.posts.sort((a, b) => b.avgRating - a.avgRating);
+    },
 
-        function avgRating (r) {
-            r = Math.floor (r.reduce ((sum, current) => sum + current) / 100) / 10;
-            return r;
-        }
-
-        this.posts.slice(0, blogCol).forEach ((item, i) => {
+    render (selector, RENDER_COL = 3) {
+        // RENDER_COL = количество выводимых статей в блоке
+        this.posts.slice(0, RENDER_COL).forEach((item, i) => {
             const renderTopics = document.createElement('div');
             renderTopics.innerHTML = '<span class="badge badge-secondary">' +
-                                 item.topics.join('</span> <span class="badge badge-secondary">') +
-                                 '</span>';
+                                    item.topics.join('</span> <span class="badge badge-secondary">') +
+                                    '</span>';
             document.querySelectorAll ('.' + selector + ' > .blog_h3')[i].innerHTML = item.title;
-            document.querySelectorAll ('.' + selector + ' > .rating')[i].innerHTML = 'Rating: ' + item.avgRating.toFixed(1);
+            if (item.avgRating) {
+                document.querySelectorAll ('.' + selector + ' > .rating')[i].innerHTML = 'Rating: ' + item.avgRating.toFixed(1);
+            }
             document.querySelectorAll ('.' + selector + ' > .topics')[i].append(renderTopics);
         });
     }
-}
+})
 
-new Blog().render('blog-1_section');
-new Blog().render('blog-2_section');
-// console.log (new Blog());
-// console.log (new Blog().posts);
-// console.log ('rendr'+new Blog().render('blog-2_section'));
+Object.assign(Blog.prototype, Renderable.prototype);
+
+const blog1 = new Blog();
+blog1.avgRatingSort();
+blog1.render('blog-1_section');
+const blog2 = new Blog();
+blog2.avgRatingSort();
+blog2.render('blog-2_section');
