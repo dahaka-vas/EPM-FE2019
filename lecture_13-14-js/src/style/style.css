@@ -301,8 +301,76 @@ i {
   display: none;
 }
 
+#check_menu:not(:checked) ~ .label_menu, #check_menu:checked ~ .label_menu {
+  -webkit-transition: all 0.5s linear 0s;
+  transition: all 0.5s linear 0s;
+}
+
+#check_menu:checked ~ .label_menu {
+  background-color: #fefefe;
+}
+
+#check_menu:checked ~ .label_menu .burger_menu_icon:after {
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+}
+
+#check_menu:checked ~ .label_menu .burger_menu_icon {
+  height: 0;
+}
+
+#check_menu:checked ~ .label_menu .burger_menu_icon:before {
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+
+#check_menu:checked ~ .header_menu {
+  display: block;
+  height: 100%;
+  width: 100%;
+  overflow: visible;
+  -webkit-transform: translate(-55px, 4px);
+          transform: translate(-55px, 4px);
+}
+
+.label_menu {
+  display: none;
+  cursor: pointer;
+  z-index: 2;
+  position: absolute;
+  background-color: #ffe26d;
+  top: -3px;
+  width: 40px;
+  height: 40px;
+  padding-left: 9px;
+  padding-top: 19px;
+  border-radius: 5px;
+}
+
+.burger_menu_icon, .burger_menu_icon:before, .burger_menu_icon:after {
+  position: absolute;
+  display: inline-block;
+  width: 20px;
+  height: 2px;
+  background-color: #62497c;
+}
+
+.burger_menu_icon:before, .burger_menu_icon:after {
+  content: '';
+}
+
+.burger_menu_icon:before {
+  -webkit-transform: translateY(5px);
+          transform: translateY(5px);
+}
+
+.burger_menu_icon:after {
+  -webkit-transform: translateY(-5px);
+          transform: translateY(-5px);
+}
+
 .menu a {
-  text-align: left;
+  text-align: right;
   color: #fff;
   font-size: 10.5px;
   letter-spacing: normal;
@@ -1080,14 +1148,44 @@ i {
   .pricing_section {
     border: 0;
   }
+  .header_menu {
+    height: 0px;
+    width: 0px;
+    overflow: hidden;
+    display: block;
+  }
+  .label_menu {
+    display: block;
+  }
   .menu li {
     display: block;
-    text-align: right;
-    padding-right: 3vw;
+    padding-left: 0;
   }
   .header_menu {
-    top: -12px;
-    width: 200px;
+    top: -15px;
+  }
+  .menu {
+    -webkit-box-shadow: 0 0 10px #fefefe;
+            box-shadow: 0 0 10px #fefefe;
+    border-radius: 4px;
+    width: 60%;
+    margin-left: 40%;
+    padding: 5px;
+  }
+  .menu a {
+    font-size: 2.4vw;
+    color: #040405;
+    background-color: #ffe26d;
+    padding: 5px;
+    padding-right: 15px;
+    margin: 5px;
+    border-radius: 4px;
+    width: 90%;
+  }
+  .menu a:hover {
+    color: #fefefe;
+    background-color: #62497c;
+    border: 1px solid #ffe26d;
   }
   .header_logo {
     margin-left: 3vw;
@@ -1133,6 +1231,9 @@ i {
 @media (max-width: 576px) {
   .header_h2 {
     font-size: 25px;
+  }
+  .menu a {
+    font-size: 14px;
   }
   .welcome_p {
     max-width: 280px;

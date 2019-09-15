@@ -1,6 +1,6 @@
 function getRandom (min, max) {
         return Math.floor (Math.random() * (max - min + 1)) + min;
-    }
+}
 
 function avgRating (r) {
     r = Math.floor (r.reduce ((sum, current) => sum + current) / 100) / 10;
@@ -29,6 +29,12 @@ function Blog () {
 function Renderable () {}
 
 Object.assign(Renderable.prototype, {
+    render() {
+        throw new Error('Такого метода не существует')
+    }
+})
+
+Object.assign(Blog.prototype, Renderable.prototype, {
     avgRatingSort () {
         this.posts.map((item, i) => item.avgRating = avgRating (this.posts[i].ratings));
         this.posts.sort((a, b) => b.avgRating - a.avgRating);
@@ -46,11 +52,9 @@ Object.assign(Renderable.prototype, {
                 document.querySelectorAll ('.' + selector + ' > .rating')[i].innerHTML = 'Rating: ' + item.avgRating.toFixed(1);
             }
             document.querySelectorAll ('.' + selector + ' > .topics')[i].append(renderTopics);
-        });
+        })
     }
 })
-
-Object.assign(Blog.prototype, Renderable.prototype);
 
 const blog1 = new Blog();
 blog1.avgRatingSort();

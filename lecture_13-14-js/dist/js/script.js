@@ -1,6 +1,6 @@
-function getRandom (min, max) {
-    return Math.floor (Math.random() * (max - min + 1)) + min;
-}
+// function getRandom (min, max) {
+//     return Math.floor (Math.random() * (max - min + 1)) + min;
+// }
 
 function avgRating (r) {
     r = Math.floor (r.reduce((sum, current) => sum + current) / 100) / 10;
@@ -10,6 +10,16 @@ function avgRating (r) {
 function Renderable () {}
 
 Object.assign(Renderable.prototype, {
+    render() {
+        throw new Error('Метода Render не существует')
+    }
+})
+
+function Blog (posts) {
+    this.posts = posts;
+}
+
+Object.assign(Blog.prototype, Renderable.prototype, {
     avgRatingSort () {
         this.posts.map((item, i) => item.avgRating = avgRating (this.posts[i].ratings));
         this.posts.sort((a, b) => b.avgRating - a.avgRating);
@@ -27,15 +37,9 @@ Object.assign(Renderable.prototype, {
                 document.querySelectorAll ('.' + selector + ' > .rating')[i].innerHTML = 'Rating: ' + item.avgRating.toFixed(1);
             }
             document.querySelectorAll ('.' + selector + ' > .topics')[i].append(renderTopics);
-        });
+        })
     }
 })
-
-function Blog (posts) {
-    this.posts = posts;
-}
-
-Object.assign(Blog.prototype, Renderable.prototype);
 
 function getDataFromServerApi (url) {
     data = fetch(url)
@@ -49,4 +53,7 @@ const blogPosts = getDataFromServerApi('https://my-json-server.typicode.com/daha
     posts = new Blog(data);
     posts.avgRatingSort();
     posts.render('blog-1_section');
+})
+.catch(error => {
+    alert(error);
 });
