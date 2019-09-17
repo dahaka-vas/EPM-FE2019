@@ -2,8 +2,6 @@
 //     return Math.floor (Math.random() * (max - min + 1)) + min;
 // }
 
-const BLOG_URL = 'https://my-json-server.typicode.com/dahaka-vas/EPM-FE2019/posts';
-
 function avgRating (r) {
     r = Math.floor (r.reduce((sum, current) => sum + current) / 100) / 10;
     return r;
@@ -17,23 +15,9 @@ Object.assign(Renderable.prototype, {
     }
 })
 
-function Blog (url) {
-    this.url = url;
+function Blog (posts) {
+    this.posts = posts;
 }
-
-//============ ГЕТТЕР ============//
-Blog.prototype = {
-    get posts () {
-        return GetDataFromServerApi (this.url)
-    }
-};
-
-Object.defineProperty(Blog, 'posts', {
-    get posts () {
-        return GetDataFromServerApi (this.url)
-    }
-});
-//============ ГЕТТЕР ============//
 
 Object.assign(Blog.prototype, Renderable.prototype, {
     avgRatingSort () {
@@ -57,28 +41,19 @@ Object.assign(Blog.prototype, Renderable.prototype, {
     }
 })
 
-async function GetDataFromServerApi (url) {
+function getDataFromServerApi (url) {
     data = fetch(url)
     .then(response => response.json())
-    // .then(data => console.log(data))
     .catch(error => alert(error));
-    // console.log(this.data);
-    return await data;
+    return data;
 }
 
-// const blogPosts = getDataFromServerApi('https://my-json-server.typicode.com/dahaka-vas/EPM-FE2019/posts')
-// .then(data => {
-//     posts = new Blog(data);
-//     posts.avgRatingSort();
-//     posts.render('blog-1_section');
-// })
-// .catch(error => {
-//     alert(error);
-// });
-
-const blogPosts = new Blog(BLOG_URL);
-// blogPosts.then(data => console.log('ff' + data) );
-console.log(blogPosts);
-
-// blogPosts.avgRatingSort();
-// blogPosts.render('blog-1_section');
+const blogPosts = getDataFromServerApi('https://my-json-server.typicode.com/dahaka-vas/EPM-FE2019/posts')
+.then(data => {
+    posts = new Blog(data);
+    posts.avgRatingSort();
+    posts.render('blog-1_section');
+})
+.catch(error => {
+    alert(error);
+});

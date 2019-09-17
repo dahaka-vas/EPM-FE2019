@@ -1,0 +1,69 @@
+// @import 'fonts.scss';
+
+%p_text {
+    font-family: Helvetica;
+    font-size: 13.5px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.44;
+    letter-spacing: normal;
+    color: #04040580;
+}
+
+.project{
+    padding-top: 120px;
+
+    h2 {
+        margin-bottom: 20px;
+    }
+
+    h3 {
+        text-align: left;
+        color: $black;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    p {
+        @extend %p_text;
+        text-align: left;
+        margin-bottom: 7px;
+    }
+}
+
+.project_img {
+    position: relative;
+
+    img {
+        width: 100%;
+    }
+}
+
+.project_section {
+    position: relative;
+    max-width: 350px;
+    // max-width: 20rem;
+    text-align: left;
+    background-color: $grey;
+
+    &:nth-child(2n) {
+        background-color: $dark-grey;
+    }
+
+    &:hover {
+        background-color: $yellow;
+
+        .project_img:before {
+            content: '';
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            background-color: #00000080;
+        }
+    }
+}
+
+.project_info {
+    padding: 30px 10px 30px 45px;
+}
