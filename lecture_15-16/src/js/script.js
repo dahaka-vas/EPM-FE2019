@@ -7,23 +7,27 @@ function avgRating (r) {
     return r;
 }
 
-function Renderable () {}
+// function Renderable () {}
 
-Object.assign(Renderable.prototype, {
-    render() {
-        throw new Error('Метода Render не существует')
+// Object.assign(Renderable.prototype, {
+//     render() {
+//         throw new Error('Метода Render не существует')
+//     }
+// })
+
+class Posts {
+    constructor(url) {
+        this.posts = fetch(url)
+        .then(response => response.json())
+        .catch(error => alert(error));
     }
-})
-
-function Blog (posts) {
-    this.posts = posts;
 }
 
-Object.assign(Blog.prototype, Renderable.prototype, {
+class Blog extends Posts {
     avgRatingSort () {
         this.posts.map((item, i) => item.avgRating = avgRating (this.posts[i].ratings));
         this.posts.sort((a, b) => b.avgRating - a.avgRating);
-    },
+    }
 
     render (selector, RENDER_COL = 3) {
         // RENDER_COL = количество выводимых статей в блоке
@@ -39,21 +43,25 @@ Object.assign(Blog.prototype, Renderable.prototype, {
             document.querySelectorAll ('.' + selector + ' > .topics')[i].append(renderTopics);
         })
     }
-})
-
-function getDataFromServerApi (url) {
-    data = fetch(url)
-    .then(response => response.json())
-    .catch(error => alert(error));
-    return data;
 }
 
-const blogPosts = getDataFromServerApi('https://my-json-server.typicode.com/dahaka-vas/EPM-FE2019/posts')
-.then(data => {
-    posts = new Blog(data);
-    posts.avgRatingSort();
-    posts.render('blog-1_section');
-})
-.catch(error => {
-    alert(error);
-});
+// function getDataFromServerApi (url) {
+//     data = fetch(url)
+//     .then(response => response.json())
+//     .catch(error => alert(error));
+//     return data;
+// }
+
+// const blogPosts = getDataFromServerApi('https://my-json-server.typicode.com/dahaka-vas/EPM-FE2019/posts')
+// .then(data => {
+//     posts = new Blog(data);
+//     posts.avgRatingSort();
+//     posts.render('blog-1_section');
+// })
+// .catch(error => {
+//     alert(error);
+// });
+const BLOG_URL = 'https://my-json-server.typicode.com/dahaka-vas/EPM-FE2019/posts';
+const blogPosts = new Blog(BLOG_URL);
+blogPosts.avgRatingSort();
+blogPosts.render('blog-1_section');
