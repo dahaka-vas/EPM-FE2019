@@ -22,16 +22,12 @@ module.exports = {
           },
           {
             test: /\.(woff|woff2|eot|ttf|otf)$/,
-            use: [
-              {
-                loader: 'file-loader',
-                options: {
-                  name: '[name].[ext]',
-                  outputPath: './fonts',
-                  useRelativePath: true
-                }
-              }
-            ]
+            loader: 'file-loader',
+            options: {
+              name: '[name].[ext]',
+              outputPath: './fonts',
+              useRelativePath: true
+            }
           },
           {
             test: /\.(svg|png|jpg|jpeg|gif|ico)$/,
@@ -41,6 +37,10 @@ module.exports = {
               outputPath: './img',
               useRelativePath: true
             }
+        },
+        {
+          test: /\.html$/,
+          loader: 'html-loader'
         },
         ]
     },
