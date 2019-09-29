@@ -1,7 +1,7 @@
 import blog from '../services/api-service.js';
 import RenderService from '../services/render-service.js';
 
-class Blog extends RenderService {
+class BlogRenderService extends RenderService {
     fillPosts () {
         return blog
         .then(blog => this.posts = blog);
@@ -31,7 +31,7 @@ class Blog extends RenderService {
     }
 }
 
-const blogPosts = new Blog();
+const blogPosts = new BlogRenderService();
 export default blogPosts.fillPosts()
 .then(() => {
     blogPosts.avgRatingSort();
