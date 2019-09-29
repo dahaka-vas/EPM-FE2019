@@ -1,6 +1,6 @@
 const path = require('path');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
-const {CleanWebpackPlugin} = require('clean-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
@@ -9,10 +9,22 @@ module.exports = {
         filename: 'main.js',
         path: path.resolve(__dirname, 'dist')
     },
+    devServer: {
+      contentBase: path.join(__dirname, 'dist'),
+      compress: true,
+      port: 9000
+    },
     module: {
         rules: [
           {
-            test: /\.scss$/,
+            test: /\.js$/i,
+            loader: 'babel-loader',
+            options: {
+              presets: ['@babel/preset-env']
+            }
+          },
+          {
+            test: /\.(s)?css$/i,
             exclude: /node_modules/,
             use: [
               MiniCssExtractPlugin.loader,
@@ -21,28 +33,27 @@ module.exports = {
             ]
           },
           {
-            test: /\.(woff|woff2|eot|ttf|otf)$/,
+            test: /\.(woff|woff2|eot|ttf|otf)$/i,
             loader: 'file-loader',
             options: {
-              name: '[name].[ext]',
-              outputPath: './fonts',
-              useRelativePath: true
+              name: 'fonts/[name].[ext]'
             }
           },
           {
-            test: /\.(svg|png|jpg|jpeg|gif|ico)$/,
+            test: /\.(svg|png|jp(e)?g|gif)$/i,
             loader: 'file-loader',
             options: {
-              name: '[name].[ext]',
-              outputPath: './img',
-              useRelativePath: true
+              name: 'img/[name].[ext]'
             }
         },
         {
-          test: /\.html$/,
-          loader: 'html-loader'
+          test: /\.html$/i,
+          loader: 'html-loader',
+          options: {
+            minimize: true
+          }
         },
-        ]
+      ]
     },
     plugins: [
         new CleanWebpackPlugin(),
