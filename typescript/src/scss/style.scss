@@ -1,0 +1,68 @@
+@import "common/index.scss";
+@import "components/index.scss";
+@import 'media.scss';
+
+
+// div, section {
+//   outline: 2px solid blue;
+// }
+
+
+
+
+body, html {
+  margin: 0px auto;
+  padding: 0px;
+  // outline: 3px solid red;
+  width: 100%;
+}
+
+.body_wrapper {
+  position: relative;
+  max-width: 1430px;
+  margin: 0px auto;
+  background-color: $light-grey;
+}
+
+.container {
+  padding-right: 0px;
+  padding-left: 0px;
+}
+
+.content_container {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+
+h2 {
+    @extend %font_montserrat;
+    font-size: 44px;
+    letter-spacing: 0.4px;
+    text-align: center;
+    color: $black;
+}
+
+h3 {
+    @extend %font_montserrat;
+    font-size: 14.5px;
+    line-height: 0.8;
+    letter-spacing: normal;
+    text-align: center;
+    color: $purple;
+    text-transform: uppercase;
+  }
+
+.badge-yellow {
+  font-size: 0.9em;
+  background-color: $yellow;
+}
+
+.badge {
+  font-size: 0.9em;
+  // background-color: $yellow;
+}
+
+p {
+  margin-bottom: 0.2rem;
+}
