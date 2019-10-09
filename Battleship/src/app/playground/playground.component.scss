@@ -1,0 +1,19 @@
+.playground {
+    display: flex;
+    // width: 50%;
+    justify-content: center;
+    // outline: 2px solid green;
+}
+.field {
+    // width: 55%;
+    padding: 30px;
+
+    &:first-child {
+        padding-left: 10px;
+    }
+    &:last-child {
+        padding-right: 10px;
+    }
+
+    // outline: 2px solid red;
+}

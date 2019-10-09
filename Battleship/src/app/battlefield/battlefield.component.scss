@@ -1,0 +1,33 @@
+.battlefield {
+    width: 200px;
+    height: 200px;
+    // margin: 70px;
+    border: 1px solid #1e78ff;
+}
+
+.rows {
+    display: flex;
+    width: 100%;
+    height: 10%;
+}
+
+.cel {
+    border: 1px solid #1e78ff;
+    width: 10%;
+    background: #fff;
+    text-align: center;
+}
+
+@media (min-width: 768px) {
+    .battlefield {
+        width: 27vw;
+        height: 27vw;
+    }
+}
+
+@media (min-width: 992px) {
+    .battlefield {
+        width: 280px;
+        height: 280px;
+    }
+}
