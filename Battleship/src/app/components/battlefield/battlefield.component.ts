@@ -10,12 +10,12 @@ export class BattlefieldComponent implements OnInit {
   constructor() { }
 
   private sizes:number = 10;
-  private cells:string[] = [];
+  private cells = [];
 
 
   ngOnInit() {
     for (let i:number = 0; i < this.sizes; i++) {
-      let rows:string[] = [];
+      let rows = [];
       for (let j:number = 0; j < this.sizes; j++) {
         rows.push(String.fromCodePoint(i+65) + (j+1).toString());
       }

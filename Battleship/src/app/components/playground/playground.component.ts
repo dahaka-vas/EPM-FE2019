@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PreparingToGameService } from 'src/app/services/preparing-to-game.service';
 
 @Component({
   selector: 'app-playground',
@@ -7,12 +8,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PlaygroundComponent implements OnInit {
 
-  constructor() { }
-
-  readyToPlay = false;
+  constructor(private preparingService: PreparingToGameService) { }
 
   ngOnInit() {
-
   }
-
 }

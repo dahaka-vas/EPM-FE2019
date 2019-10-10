@@ -1,0 +1,28 @@
+<div class="settingsfield-container">
+    <div class="ships-container">
+        <span class="fourdeck-ship">4</span><br>
+
+        <span class="threedeck-ship">3</span>
+        <span class="threedeck-ship">3</span><br>
+
+        <span class="twodeck-ship">2</span>
+        <span class="twodeck-ship">2</span>
+        <span class="twodeck-ship">2</span><br>
+
+        <span class="onedeck-ship">1</span>
+        <span class="onedeck-ship">1</span>
+        <span class="onedeck-ship">1</span>
+        <span class="onedeck-ship">1</span><br>
+    </div>
+
+    <div class="buttons-container">
+        <button class="button button-auto">Auto</button>
+        <button *ngIf="!preparingService.readyToPlay" class="button button-play" (click)="preparingService.onPlay()">
+            <span class="button-line-top"></span>
+            <span class="button-line-right"></span>
+            <span class="button-line-left"></span>
+            <span class="button-line-bottom"></span>
+            Play
+        </button>
+    </div>
+</div>
