@@ -1,5 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { PreparingToGameService } from 'src/app/services/preparing-to-game.service';
+
+import { BattlefieldService } from 'src/app/services/battlefield.service';
+import { ShipsService } from 'src/app/services/ships.service';
+
+import { Cell } from 'src/app/interfaces/cell.interface';
+import { Ship } from 'src/app/interfaces/ship.interface';
+
 
 @Component({
   selector: 'app-playground',
@@ -8,8 +14,30 @@ import { PreparingToGameService } from 'src/app/services/preparing-to-game.servi
 })
 export class PlaygroundComponent implements OnInit {
 
-  constructor(private preparingService: PreparingToGameService) { }
+  constructor(
+    private battlefieldService: BattlefieldService,
+    private shipsService: ShipsService
+  ) {}
+
+  private player: {field:Array<Array<Cell>>, ships:Array<Ship>} = {field: null, ships: null};
+  private enemy: {field:Array<Array<Cell>>, ships:Array<Ship>} = {field: null, ships: null};
+
+  private readyToPlay = false;
+  // shipsData:ShipsData;
 
   ngOnInit() {
+
+      this.player.ships = this.shipsService.getShips();
+      this.player.field = this.battlefieldService.getField(this.player.ships);
+
+      this.enemy.ships = this.shipsService.getShips();
+      this.enemy.field = this.battlefieldService.getField(this.enemy.ships);
+
+    console.log(this, this.player, this.enemy);
+
+    this.readyToPlay = true;
+  }
+
+  onClick() {
   }
 }

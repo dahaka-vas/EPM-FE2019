@@ -1,0 +1,22 @@
+{
+    "fourDeckShips": {
+        "number": 1,
+        "size": 4,
+        "type": "fourDeckShips"
+    },
+    "threeDeckShips": {
+        "number": 2,
+        "size": 3,
+        "type": "threeDeckShips"
+    },
+    "twoDeckShips": {
+        "number": 3,
+        "size": 2,
+        "type": "twoDeckShips"
+    },
+    "oneDeckShips": {
+        "number": 4,
+        "size": 1,
+        "type": "oneDeckShips"
+    }
+}

@@ -1,15 +1,27 @@
 <div class="playground">
     <div class="field-container">
         <div class="battlefield player-battlefield">
-            <app-battlefield></app-battlefield>
+            <app-battlefield
+                [isEnemy]="false"
+                (click) = "onClick()"
+                [field] = "player.field"
+                [ships] = "player.ships"
+            >
+            </app-battlefield>
         </div>
     </div>
     <div class="field-container">
-        <div class="battlefield comp-battlefield" [ngClass]="{ compBattlefieldRotate: preparingService.readyToPlay }">
-            <app-battlefield></app-battlefield>
+        <div class="battlefield comp-battlefield" [ngClass]="{ compBattlefieldRotate: readyToPlay }">
+            <app-battlefield
+                [isEnemy]="true"
+                (click) = "onClick()"
+                [field] = "enemy.field"
+                [ships] = "enemy.ships"
+            >
+            </app-battlefield>
         </div>
-        <div class="settingsfield" [ngClass]="{ settingsRotate: preparingService.readyToPlay }">
+        <!-- <div class="settingsfield" [ngClass]="{ settingsRotate: preparingService.readyToPlay }">
             <app-settingsfield></app-settingsfield>
-        </div>
+        </div> -->
     </div>
 </div>

@@ -1,0 +1,119 @@
+import { Injectable, OnInit } from '@angular/core';
+
+import { Cell } from 'src/app/interfaces/cell.interface';
+import { Ship } from 'src/app/interfaces/ship.interface';
+
+import { ShipsData } from 'src/app/interfaces/shipsData.interface';
+
+import { HttpClient} from '@angular/common/http';
+
+
+@Injectable({
+  providedIn: 'root'
+})
+export class ShipsService {
+
+  constructor(private http: HttpClient) { }
+
+  private shipsData:ShipsData = {
+    fourDeckShips: {
+      number: 1,
+      size: 4,
+      type: 'fourDeckShips'
+    },
+    threeDeckShips: {
+      number: 2,
+      size: 3,
+      type: 'threeDeckShips'
+    },
+    twoDeckShips: {
+      number: 3,
+      size: 2,
+      type: 'twoDeckShips'
+    },
+    oneDeckShips: {
+      number: 4,
+      size: 1,
+      type: 'oneDeckShips'
+    }
+  }
+
+  // private shipsData:ShipsData;
+  private fieldSize:number = 10;
+
+  private getRandom (min:number, max:number):number {
+    return Math.round (Math.random() * (max - min)) + min;
+  }
+
+  private get ships () {
+    let occupiedCells = new Array(this.fieldSize).fill(null).map(() => {
+      return new Array(this.fieldSize).fill(false)
+    });
+
+    const oneTypeShips = (type:string, num:number, size:number) => {
+      return new Array(num).fill(type).map((type, index) => {
+
+        let coords:Array<Cell> = [];
+        let coordX:number,
+            coordY:number
+        ;
+        let directionX: number = this.getRandom(0, 1);       // 0 = horizontal, 1 = vertical
+        let directionY: number = directionX ? 0 : 1;         // 0 = vertical, 1 = horizontal
+
+        const isOccupied = (_coordX:number, _coordY:number) => {
+            for (let i = 0; i < size; i++) {
+              if (occupiedCells[_coordX + (i*directionX)][_coordY + (i*directionY)]) return true
+            }
+          return false;
+        }
+
+        do {
+          coordX = this.getRandom(0, this.fieldSize - 1 - (size-1)*directionX);
+          coordY = this.getRandom(0, this.fieldSize - 1 - (size-1)*directionY);
+        } while (isOccupied (coordX, coordY))
+
+        const occupingCells = (_coords:Cell) => {
+          for (let i = 0; i < 3; i++) {
+            try { occupiedCells[_coords.coordX-1] [_coords.coordY-1+i] = true;} catch {}
+            try { occupiedCells[_coords.coordX]   [_coords.coordY-1+i] = true;} catch {}
+            try { occupiedCells[_coords.coordX+1] [_coords.coordY-1+i] = true;} catch {}
+          }
+        }
+
+        for (let i = 0; i < size; i++) {
+          coords.push({coordX: coordX + (i*directionX), coordY: coordY + (i*directionY)});
+          occupingCells(coords[i]);
+        }
+
+        return {
+          id: type + '-' + (++index),
+          coords,
+          type,
+          size,
+          hits: 0,
+          isSunk: false
+        }
+      });
+    };
+
+    let ships:Array<Ship> = []
+    for (let ship in this.shipsData) {
+      ships = [
+        ...ships,
+        ...(oneTypeShips(this.shipsData[ship].type, this.shipsData[ship].number, this.shipsData[ship].size))
+      ]
+    }
+
+    return ships
+  }
+
+  getShips () {
+
+    // this.http.get('/assets/shipsData.json').subscribe((shipsData:ShipsData) => {
+    //   this.shipsData = shipsData;
+    //   return this.ships;
+    // })
+
+    return this.ships
+  }
+}
