@@ -1,0 +1,21 @@
+<div class="settingsfield-container">
+    <div class="ships-container">
+        <p>Click an AUTO button to locate your ships</p>
+        <!-- <app-ships></app-ships> -->
+    </div>
+
+    <div class="buttons-container">
+        <button class="button button-auto" (click) = "onAuto()">Auto</button>
+        <button *ngIf="readyToPlay"
+                class="button button-play"
+                (click)="onPlay()"
+                (keydown.space)="onSpace()"
+        >
+            <span class="button-line-top"></span>
+            <span class="button-line-right"></span>
+            <span class="button-line-left"></span>
+            <span class="button-line-bottom"></span>
+            Play
+        </button>
+    </div>
+</div>

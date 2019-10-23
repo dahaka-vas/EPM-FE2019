@@ -19,15 +19,15 @@ export class PlaygroundComponent implements OnInit {
     private shipsService: ShipsService
   ) {}
 
-  private player: {field:Array<Array<Cell>>, ships:Array<Ship>} = {field: null, ships: null};
-  private enemy: {field:Array<Array<Cell>>, ships:Array<Ship>} = {field: null, ships: null};
+  private player: {field:Array<Array<Cell>>, ships:Array<Ship>} = {field: [], ships: []};
+  private enemy: {field:Array<Array<Cell>>, ships:Array<Ship>} = {field: [], ships: []};
 
-  private readyToPlay = false;
+  readyToPlay = false;
   // shipsData:ShipsData;
 
   ngOnInit() {
 
-      this.player.ships = this.shipsService.getShips();
+      // this.player.ships = this.shipsService.getShips();
       this.player.field = this.battlefieldService.getField(this.player.ships);
 
       this.enemy.ships = this.shipsService.getShips();
@@ -35,9 +35,17 @@ export class PlaygroundComponent implements OnInit {
 
     console.log(this, this.player, this.enemy);
 
-    this.readyToPlay = true;
   }
 
   onClick() {
+  }
+
+  autoShips({ships, field}){
+    this.player.ships = ships;
+    this.player.field = field;
+  }
+
+  start (status:boolean) {
+    this.readyToPlay = status
   }
 }

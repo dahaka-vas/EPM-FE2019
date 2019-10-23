@@ -20,8 +20,12 @@
             >
             </app-battlefield>
         </div>
-        <!-- <div class="settingsfield" [ngClass]="{ settingsRotate: preparingService.readyToPlay }">
-            <app-settingsfield></app-settingsfield>
-        </div> -->
+        <div class="settingsfield" [ngClass]="{ settingsRotate: readyToPlay }" >
+            <app-settingsfield
+                [readyToPlay]="readyToPlay"
+                (autoShips)="autoShips($event)"
+                (start)="start($event)"
+            ></app-settingsfield>
+        </div>
     </div>
 </div>

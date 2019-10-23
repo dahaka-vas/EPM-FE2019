@@ -1,0 +1,104 @@
+$blue: #1976d2;
+
+.button-play{
+    animation-name: show-play;
+    animation-duration: 1.5s;
+}
+
+@keyframes show-play {
+    0%, 50% {
+        border: none;
+        background-color: inherit;
+        color: #fafafa;box-shadow: 0 0px 0px #fff;
+    }
+    60% {
+        background-color: $blue;
+        color: white;
+    }
+    80% {
+        box-shadow: 0 2px 10px $blue, 0 2px 40px $blue;
+    }
+    100% {
+        box-shadow: 0 1px 1px $blue;
+    }
+}
+
+.button-line-top{
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, $blue);
+    animation-name: show-line-top;
+    animation-duration: 1s;
+}
+
+@keyframes show-line-top {
+    0%, 20% {
+        left: -100%;
+    }
+    100% {
+        left: 100%;
+    }
+}
+
+.button-line-bottom{
+    position: absolute;
+    bottom: 0;
+    left: 100%;
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(270deg, transparent, $blue);
+    animation-name: show-line-bottom;
+    animation-duration: 1s;
+}
+
+@keyframes show-line-bottom {
+    0%, 20% {
+        left: 100%;
+    }
+    100% {
+        left: -100%;
+    }
+}
+
+.button-line-left{
+    position: absolute;
+    bottom: -100%;
+    left: 0%;
+    height: 100%;
+    width: 1px;
+    background: linear-gradient(0deg, transparent, $blue);
+    animation-name: show-line-left;
+    animation-duration: 1s;
+}
+
+@keyframes show-line-left {
+    0%{
+        bottom: -100%;
+    }
+    55%, 100% {
+        bottom: 100%;
+    }
+}
+
+.button-line-right{
+    position: absolute;
+    bottom: 100%;
+    right: 0%;
+    height: 100%;
+    width: 1px;
+    background: linear-gradient(180deg, transparent, $blue);
+    animation-name: show-line-right;
+    animation-duration: 1s;
+}
+
+@keyframes show-line-right {
+    0% {
+        bottom: 100%;
+    }
+    55%, 100% {
+        bottom: -100%;
+    }
+}
