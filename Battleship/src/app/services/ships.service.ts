@@ -1,11 +1,11 @@
-import { Injectable, OnInit } from '@angular/core';
+import { Injectable } from '@angular/core';
 
 import { Cell } from 'src/app/interfaces/cell.interface';
 import { Ship } from 'src/app/interfaces/ship.interface';
 
 import { ShipsData } from 'src/app/interfaces/shipsData.interface';
 
-import { HttpClient} from '@angular/common/http';
+// import { HttpClient} from '@angular/common/http';
 
 
 @Injectable({
@@ -13,7 +13,9 @@ import { HttpClient} from '@angular/common/http';
 })
 export class ShipsService {
 
-  constructor(private http: HttpClient) { }
+  constructor(
+    // private http: HttpClient
+  ) { }
 
   private shipsData:ShipsData = {
     fourDeckShips: {

@@ -16,28 +16,24 @@ div {
     padding: 10px 50px;
     display: flex;
     justify-content: flex-end;
-    // outline: 1px solid red;
 }
 
 a {
     padding: 10px 30px;
-
     margin: 10px 15px;
     text-align: right;
     color: #1976d2;
     border: 1px solid #1976d2;
     background-color: #fafafa;
     font-size: 12px;
-    letter-spacing: normal;
     text-decoration: none;
+    font-weight: 600;
     text-transform: uppercase;
-    transition: all 0.1s ease 0s;
     display: inline-block;
     border-radius: 4px;
 
     &:hover {
         box-shadow: 0 1px 2px #1976d2;
-        
     }
 
     &:active {

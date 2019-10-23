@@ -19,4 +19,4 @@ export interface ShipsData {
       size:number,
       type:string
     }
-  }
+}

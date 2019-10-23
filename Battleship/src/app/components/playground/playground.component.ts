@@ -26,15 +26,11 @@ export class PlaygroundComponent implements OnInit {
   // shipsData:ShipsData;
 
   ngOnInit() {
+    this.player.field = this.battlefieldService.getField(this.player.ships);
+    this.enemy.ships = this.shipsService.getShips();
+    this.enemy.field = this.battlefieldService.getField(this.enemy.ships);
 
-      // this.player.ships = this.shipsService.getShips();
-      this.player.field = this.battlefieldService.getField(this.player.ships);
-
-      this.enemy.ships = this.shipsService.getShips();
-      this.enemy.field = this.battlefieldService.getField(this.enemy.ships);
-
-    console.log(this, this.player, this.enemy);
-
+    console.log(this);
   }
 
   onClick() {

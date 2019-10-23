@@ -9,7 +9,6 @@ export class BattlefieldService {
 
   constructor() { }
 
-  field:Array<Array<Cell>> = []
   fieldSize = 10;
 
   getField (ships:Array<Ship>) {

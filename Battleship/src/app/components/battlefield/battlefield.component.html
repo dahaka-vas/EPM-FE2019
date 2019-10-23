@@ -8,25 +8,8 @@
                 miss: field[i][j].cellStatus == 'miss'
             }"
             *ngFor="let cell of field; let j = index"
-
             (click) = "onFire(i, j)"
         >
         </div>
     </div>
 </div>
-
-<!-- [(cell)] = "field[i][j]" -->
-<!-- <app-cell
-[ngClass] = "{
-    cell: true,
-    ship: field[i][j].isShip ? true : false,
-    hit: field[i][j].hit,
-    miss: field[i][j].miss
-}"
-*ngFor="let cell of field; let j = index"
-attr.data-id={{i}},{{j}}
-attr.data-cell={{field[i][j]}}
-[cell] = "field[i][j]"
-(click) = "onFire(i, j)"
->
-</app-cell> -->
