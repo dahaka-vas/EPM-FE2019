@@ -1,6 +1,4 @@
 import { Component, EventEmitter, OnInit, Input, Output } from '@angular/core';
-
-import { BattlefieldService } from 'src/app/services/battlefield.service';
 import { ShipsService } from 'src/app/services/ships.service';
 
 @Component({
@@ -13,24 +11,17 @@ import { ShipsService } from 'src/app/services/ships.service';
 })
 export class SettingsfieldComponent implements OnInit {
 
-  constructor(
-    private battlefieldService: BattlefieldService,
-    private shipsService: ShipsService
-  ){}
+  constructor( private shipsService: ShipsService ) {}
 
   @Input() readyToPlay:boolean;
   @Output() start: EventEmitter<any> = new EventEmitter<any>()
   @Output() autoShips: EventEmitter<any> = new EventEmitter<any>()
 
-  ngOnInit() {
-  }
+  ngOnInit() { }
 
-  onAuto () {
-    let ships = this.shipsService.getShips();
-    let field = this.battlefieldService.getField(ships);
-
-    this.autoShips.emit({ships, field})
-
+  onAuto() {
+    let ships = this.shipsService.ships;
+    this.autoShips.emit(ships);
     this.readyToPlay = true;
   }
 

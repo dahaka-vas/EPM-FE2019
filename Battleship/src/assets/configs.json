@@ -1,0 +1,25 @@
+{
+    "fieldSize": 10,
+    "shipsData": [
+        {
+            "type": "fourDeckShips",
+            "number": 1,
+            "size": 4
+        },
+        {
+            "type": "threeDeckShips",
+            "number": 2,
+            "size": 3
+        },
+        {
+            "type": "twoDeckShips",
+            "number": 3,
+            "size": 2
+        },
+        {
+            "type": "oneDeckShips",
+            "number": 4,
+            "size": 1
+        }
+    ]
+}

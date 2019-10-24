@@ -3,9 +3,9 @@
         <div class="battlefield player-battlefield">
             <app-battlefield
                 [isEnemy]="false"
-                (click) = "onClick()"
                 [field] = "player.field"
                 [ships] = "player.ships"
+                (nextShooter) = "nextShooter($event)"
             >
             </app-battlefield>
         </div>
@@ -14,9 +14,9 @@
         <div class="battlefield comp-battlefield" [ngClass]="{ compBattlefieldRotate: readyToPlay }">
             <app-battlefield
                 [isEnemy]="true"
-                (click) = "onClick()"
                 [field] = "enemy.field"
                 [ships] = "enemy.ships"
+                (nextShooter) = "nextShooter($event)"
             >
             </app-battlefield>
         </div>

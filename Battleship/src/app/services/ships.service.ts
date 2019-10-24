@@ -2,10 +2,7 @@ import { Injectable } from '@angular/core';
 
 import { Cell } from 'src/app/interfaces/cell.interface';
 import { Ship } from 'src/app/interfaces/ship.interface';
-
 import { ShipsData } from 'src/app/interfaces/shipsData.interface';
-
-// import { HttpClient} from '@angular/common/http';
 
 
 @Injectable({
@@ -14,40 +11,39 @@ import { ShipsData } from 'src/app/interfaces/shipsData.interface';
 export class ShipsService {
 
   constructor(
-    // private http: HttpClient
   ) { }
 
-  private shipsData:ShipsData = {
-    fourDeckShips: {
-      number: 1,
-      size: 4,
-      type: 'fourDeckShips'
-    },
-    threeDeckShips: {
-      number: 2,
-      size: 3,
-      type: 'threeDeckShips'
-    },
-    twoDeckShips: {
-      number: 3,
-      size: 2,
-      type: 'twoDeckShips'
-    },
-    oneDeckShips: {
-      number: 4,
-      size: 1,
-      type: 'oneDeckShips'
-    }
-  }
+  // shipsData:ShipsData = {
+  //   fourDeckShips: {
+  //     number: 1,
+  //     size: 4,
+  //     type: 'fourDeckShips'
+  //   },
+  //   threeDeckShips: {
+  //     number: 2,
+  //     size: 3,
+  //     type: 'threeDeckShips'
+  //   },
+  //   twoDeckShips: {
+  //     number: 3,
+  //     size: 2,
+  //     type: 'twoDeckShips'
+  //   },
+  //   oneDeckShips: {
+  //     number: 4,
+  //     size: 1,
+  //     type: 'oneDeckShips'
+  //   }
+  // }
 
-  // private shipsData:ShipsData;
-  private fieldSize:number = 10;
+  shipsData:Array<ShipsData>;
+  fieldSize:number;
 
   private getRandom (min:number, max:number):number {
     return Math.round (Math.random() * (max - min)) + min;
   }
 
-  private get ships () {
+  get ships () {
     let occupiedCells = new Array(this.fieldSize).fill(null).map(() => {
       return new Array(this.fieldSize).fill(false)
     });
@@ -56,9 +52,8 @@ export class ShipsService {
       return new Array(num).fill(type).map((type, index) => {
 
         let coords:Array<Cell> = [];
-        let coordX:number,
-            coordY:number
-        ;
+        let coordX:number, coordY:number;
+
         let directionX: number = this.getRandom(0, 1);       // 0 = horizontal, 1 = vertical
         let directionY: number = directionX ? 0 : 1;         // 0 = vertical, 1 = horizontal
 
@@ -76,9 +71,9 @@ export class ShipsService {
 
         const occupingCells = (_coords:Cell) => {
           for (let i = 0; i < 3; i++) {
-            try { occupiedCells[_coords.coordX-1] [_coords.coordY-1+i] = true;} catch {}
-            try { occupiedCells[_coords.coordX]   [_coords.coordY-1+i] = true;} catch {}
-            try { occupiedCells[_coords.coordX+1] [_coords.coordY-1+i] = true;} catch {}
+            try { occupiedCells[_coords.coordX-1] [_coords.coordY-1+i] = true } catch {}
+            try { occupiedCells[_coords.coordX]   [_coords.coordY-1+i] = true } catch {}
+            try { occupiedCells[_coords.coordX+1] [_coords.coordY-1+i] = true } catch {}
           }
         }
 
@@ -107,15 +102,5 @@ export class ShipsService {
     }
 
     return ships
-  }
-
-  getShips () {
-
-    // this.http.get('/assets/shipsData.json').subscribe((shipsData:ShipsData) => {
-    //   this.shipsData = shipsData;
-    //   return this.ships;
-    // })
-
-    return this.ships
   }
 }

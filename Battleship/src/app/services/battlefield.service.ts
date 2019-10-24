@@ -9,13 +9,13 @@ export class BattlefieldService {
 
   constructor() { }
 
-  fieldSize = 10;
+  fieldSize:number;
 
   getField (ships:Array<Ship>) {
     let cols:Array<Array<Cell>> = [];
     for (let i = 0; i < this.fieldSize; i++) {
-
       let rows:Array<Cell> = [];
+
       for (let j = 0; j < this.fieldSize; j++) {
         let coordX: number = i;
         let coordY: number = j;
@@ -40,9 +40,8 @@ export class BattlefieldService {
           idShip
         });
       }
+
       cols.push(rows);
-
-
     }
     return cols;
   }

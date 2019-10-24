@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, EventEmitter, OnInit, Input, Output } from '@angular/core';
 import { Cell } from 'src/app/interfaces/cell.interface';
 import { Ship } from 'src/app/interfaces/ship.interface';
 
@@ -9,21 +9,32 @@ import { Ship } from 'src/app/interfaces/ship.interface';
 })
 export class BattlefieldComponent implements OnInit {
 
-  constructor() { }
+  constructor() {
+    console.log('constructor');
+  }
 
   @Input () isEnemy:boolean;
 
   @Input () field:Array<Array<Cell>>;
   @Input () ships:Array<Ship>;
 
+  @Output() nextShooter: EventEmitter<any> = new EventEmitter<any>();
+  private thisShooter = true;
+
   defitedStatus = false;
 
   ngOnInit() {
+    console.log('init');
   }
 
   onFire (coordX:number, coordY:number) {
     // start if
-    if (this.isEnemy && !this.field[coordX][coordY].cellStatus && !this.defitedStatus) {
+    if (this.isEnemy
+      &&
+      !this.field[coordX][coordY].cellStatus
+      &&
+      !this.defitedStatus
+    ) {
       if (this.field[coordX][coordY].isShip) {
         this.field[coordX][coordY].cellStatus = 'hit'
         let ship = this.ships.find((ship) => ship.id == this.field[coordX][coordY].idShip);
@@ -37,6 +48,7 @@ export class BattlefieldComponent implements OnInit {
       }
     }
     // end if
+    this.nextShooter.emit(true);
 
     if (this.ships.every(ship => ship.isSunk) && !this.defitedStatus) {
       alert('game over');
@@ -44,7 +56,7 @@ export class BattlefieldComponent implements OnInit {
     }
   }
 
-  private setMissCellStatusAround = (coords:Cell) => {
+  private setMissCellStatusAround (coords:Cell) {
     for (let i = 0; i < 3; i++) {
       try {
         if (!this.field[coords.coordX-1][coords.coordY-1+i].isShip) {
