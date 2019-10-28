@@ -2,7 +2,7 @@
     <div class="field-container">
         <div class="battlefield player-battlefield"
             [ngClass]="{
-                winner: gameService.winner == 'computer',
+                winner: gameService.winner == 'player',
                 hover: !gameService.gameOver
             }"
         >
@@ -17,7 +17,7 @@
         <div class="battlefield comp-battlefield"
             [ngClass]="{
                 compBattlefieldRotate: gameService.gameOn,
-                winner: gameService.winner == 'player',
+                winner: gameService.winner == 'computer',
                 hover: !gameService.gameOver
             }"
         >
