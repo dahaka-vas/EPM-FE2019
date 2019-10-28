@@ -16,10 +16,12 @@
     background: #fff;
     text-align: center;
     overflow: hidden;
-    &:hover {
-        cursor: pointer;
-    }
 }
+
+.isEnemyPointer:hover {
+    cursor: pointer;
+}
+
 .ship {
     background-color: #1976d2;
 }

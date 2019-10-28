@@ -2,13 +2,14 @@
     <div [ngClass] = "{rows: true}" *ngFor="let row of field; let i = index">
         <div
             [ngClass] = "{
+                isEnemyPointer: isEnemyField && gameService.playerIsShooter && !gameService.gameOver,
                 cell: true,
-                ship: field[i][j].isShip && !isEnemy,
+                ship: field[i][j].isShip && !isEnemyField,
                 hit: field[i][j].cellStatus == 'hit',
                 miss: field[i][j].cellStatus == 'miss'
             }"
             *ngFor="let cell of field; let j = index"
-            (click) = "onFire(i, j)"
+            (click) = "onCellClick(field[i][j])"
         >
         </div>
     </div>

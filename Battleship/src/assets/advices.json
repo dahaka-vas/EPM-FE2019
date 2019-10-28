@@ -1,0 +1,21 @@
+{
+    "preGameAdvices": [],
+    "gameAdvices": [
+        {
+            "title": "Guess in diagonal lines",
+            "paragraph": "By firing shots along a diagonal line, you guarantee maximizing the number of rows and columns into which you are firing"
+        },
+        {
+            "title": "The 'checkerboard' method",
+            "paragraph": "If you imagine the firing grid as a giant checkerboard that you can search all opposing ships by firing only on 'black' squares and means that you never need to fire on half the squares (except to finish sinking a ship when you've found it)."
+        },
+        {
+            "title": "Don't bunch up your shots early on",
+            "paragraph": "Your initial goal is to cover as much ground as possible, so do not start by firing shots adjacent to each other, even diagonally. Instead, leave a few spaces between shots."
+        },
+        {
+            "title": "Sink the ship",
+            "paragraph": "When you hit a new ship, you should immediately fire the adjacent shots to sink the ship."
+        }
+    ]
+}

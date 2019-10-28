@@ -20,7 +20,6 @@ export class BattlefieldService {
         let coordX: number = i;
         let coordY: number = j;
         let isShip:boolean = false;
-        let cellStatus = '';
         let idShip:string = '';
 
         ships.forEach((ship:Ship) => {
@@ -36,7 +35,6 @@ export class BattlefieldService {
           coordX,
           coordY,
           isShip,
-          cellStatus,
           idShip
         });
       }

@@ -1,31 +1,59 @@
 <div class="playground">
     <div class="field-container">
-        <div class="battlefield player-battlefield">
+        <div class="battlefield player-battlefield"
+            [ngClass]="{
+                winner: gameService.winner == 'computer',
+                hover: !gameService.gameOver
+            }"
+        >
             <app-battlefield
-                [isEnemy]="false"
-                [field] = "player.field"
-                [ships] = "player.ships"
-                (nextShooter) = "nextShooter($event)"
+                [isEnemyField]="false"
+                [field] = "gameService.player.field"
             >
             </app-battlefield>
         </div>
     </div>
     <div class="field-container">
-        <div class="battlefield comp-battlefield" [ngClass]="{ compBattlefieldRotate: readyToPlay }">
+        <div class="battlefield comp-battlefield"
+            [ngClass]="{
+                compBattlefieldRotate: gameService.gameOn,
+                winner: gameService.winner == 'player',
+                hover: !gameService.gameOver
+            }"
+        >
             <app-battlefield
-                [isEnemy]="true"
-                [field] = "enemy.field"
-                [ships] = "enemy.ships"
-                (nextShooter) = "nextShooter($event)"
+                [isEnemyField]="true"
+                [field] = "gameService.enemy.field"
             >
             </app-battlefield>
         </div>
-        <div class="settingsfield" [ngClass]="{ settingsRotate: readyToPlay }" >
-            <app-settingsfield
-                [readyToPlay]="readyToPlay"
-                (autoShips)="autoShips($event)"
-                (start)="start($event)"
-            ></app-settingsfield>
+        <div class="settingsfield hover" [ngClass]="{ settingsRotate: gameService.gameOn }" >
+            <app-settingsfield></app-settingsfield>
         </div>
+    </div>
+    <div class="advice">
+        <div class="speech" *ngIf="advice">
+            <h4>
+                {{advice.title}}
+            </h4>
+            <p>
+                {{advice.paragraph}}
+            </p>
+        </div>
+    </div>
+</div>
+
+<div class="playground">
+    <div class="field-container">
+        <div class="settingsfield hover" *ngIf="gameService.message?.length">
+            <div class= "message">
+                <div *ngFor="let message of gameService.message; let i = index">
+                    {{message}}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="field-container">
+        <button (click)="gameService.gameInit()" *ngIf="gameService.gameOn">New game</button>
     </div>
 </div>

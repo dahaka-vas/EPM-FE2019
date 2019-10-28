@@ -1,5 +1,11 @@
-import { Component, EventEmitter, OnInit, Input, Output } from '@angular/core';
+import { Component } from '@angular/core';
+
+import { Ship } from 'src/app/interfaces/ship.interface';
+
 import { ShipsService } from 'src/app/services/ships.service';
+import { GameService } from 'src/app/services/game.service';
+import { BattlefieldService } from 'src/app/services/battlefield.service';
+
 
 @Component({
   selector: 'app-settingsfield',
@@ -9,27 +15,24 @@ import { ShipsService } from 'src/app/services/ships.service';
     './buttons.animation.scss'
   ]
 })
-export class SettingsfieldComponent implements OnInit {
+export class SettingsfieldComponent {
 
-  constructor( private shipsService: ShipsService ) {}
-
-  @Input() readyToPlay:boolean;
-  @Output() start: EventEmitter<any> = new EventEmitter<any>()
-  @Output() autoShips: EventEmitter<any> = new EventEmitter<any>()
-
-  ngOnInit() { }
+  constructor (
+    private shipsService: ShipsService,
+    private battlefieldService: BattlefieldService,
+    private gameService: GameService
+  ) {}
 
   onAuto() {
-    let ships = this.shipsService.ships;
-    this.autoShips.emit(ships);
-    this.readyToPlay = true;
-  }
+    let ships:Array<Ship> = this.shipsService.generateShips();
+    this.gameService.player.ships = ships;
+    this.gameService.player.field = this.battlefieldService.getField(this.gameService.player.ships);
 
-  onSpace() {
-    console.log('space');
+    this.gameService.readyToPlay = true;
   }
 
   onPlay() {
-    this.start.emit(true);
+    this.gameService.gameOn = true;
+    this.gameService.game();
   }
 }

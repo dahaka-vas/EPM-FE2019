@@ -10,8 +10,7 @@ import { ShipsData } from 'src/app/interfaces/shipsData.interface';
 })
 export class ShipsService {
 
-  constructor(
-  ) { }
+  constructor () { }
 
   // shipsData:ShipsData = {
   //   fourDeckShips: {
@@ -43,7 +42,7 @@ export class ShipsService {
     return Math.round (Math.random() * (max - min)) + min;
   }
 
-  get ships () {
+  generateShips ():Array<Ship> {
     let occupiedCells = new Array(this.fieldSize).fill(null).map(() => {
       return new Array(this.fieldSize).fill(false)
     });
