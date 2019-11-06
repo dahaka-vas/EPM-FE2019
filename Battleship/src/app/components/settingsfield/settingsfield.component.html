@@ -5,8 +5,8 @@
     </div>
 
     <div class="buttons-container">
-        <button class="button button-auto" (click) = "onAuto()">Auto</button>
-        <button *ngIf="gameService.readyToPlay" class="button button-play"(click)="onPlay()">
+        <button class="button button-auto" (click)="onAuto()" [disabled]="gameService.gameOn">Auto</button>
+        <button *ngIf="gameService.readyToPlay" class="button button-play"(click)="onPlay()" [disabled]="gameService.gameOn">
             <span class="button-line-top"></span>
             <span class="button-line-right"></span>
             <span class="button-line-left"></span>

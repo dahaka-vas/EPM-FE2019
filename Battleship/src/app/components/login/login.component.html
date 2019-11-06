@@ -1,0 +1,31 @@
+<div class="form-group">
+
+    <label for="username">Username</label>
+    <input id="username" placeholder="Name" [(ngModel)]="username" #name="ngModel" required>
+    <div [hidden]="name.valid || name.untouched">
+        Не указано имя
+    </div>
+
+    <label for="email">Email</label>
+    <input id="email" placeholder="Email" [(ngModel)]="email" #mail="ngModel"
+     pattern="[a-zA-Z_]+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}" required
+    >
+    <div [hidden]="mail.valid || mail.untouched">
+        Некорректный email
+    </div>
+
+    <legend>
+        <input type="radio" id="online" disabled
+            name="mode" value="online">
+        <label for="online">Online</label>
+
+        <input type="radio" id="computer" checked
+            name="mode" value="computer">
+        <label for="computer">Computer</label>
+    </legend>
+
+    <button (click)="login()" [disabled]="name.invalid || mail.invalid">
+        Login
+    </button>
+
+</div>

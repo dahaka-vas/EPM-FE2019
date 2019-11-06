@@ -12,35 +12,28 @@ export class BattlefieldService {
   fieldSize:number;
 
   getField (ships:Array<Ship>) {
-    let cols:Array<Array<Cell>> = [];
-    for (let i = 0; i < this.fieldSize; i++) {
-      let rows:Array<Cell> = [];
+    let field:Array<Array<Cell>> = [];
 
-      for (let j = 0; j < this.fieldSize; j++) {
-        let coordX: number = i;
-        let coordY: number = j;
+    for (let coordX = 0; coordX < this.fieldSize; coordX++) {
+      let rows:Array<Cell> = [];
+      for (let coordY = 0; coordY < this.fieldSize; coordY++) {
         let isShip:boolean = false;
         let idShip:string = '';
-
-        ships.forEach((ship:Ship) => {
-          ship.coords.forEach((cell:Cell) => {
-            if (cell.coordX == coordX && cell.coordY == coordY) {
-              isShip = true;
-              idShip = ship.id;
-            }
-          })
-        })
-
-        rows.push({
-          coordX,
-          coordY,
-          isShip,
-          idShip
-        });
+        rows.push({coordX, coordY, isShip, idShip});
       }
-
-      cols.push(rows);
+      field.push(rows);
     }
-    return cols;
+
+    ships.forEach((ship:Ship) => {
+      ship.coords.forEach((shipCell:Cell) => {
+        let fieldCell = field[shipCell.coordX][shipCell.coordY];
+        if (shipCell.coordX == fieldCell.coordX && shipCell.coordY == fieldCell.coordY) {
+          fieldCell.isShip = true;
+          fieldCell.idShip = ship.id;
+        }
+      })
+    })
+
+    return field;
   }
 }

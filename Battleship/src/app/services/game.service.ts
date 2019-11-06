@@ -5,6 +5,7 @@ import { take } from 'rxjs/operators';
 import { Cell } from 'src/app/interfaces/cell.interface';
 import { Ship } from 'src/app/interfaces/ship.interface';
 import { ShipsData } from 'src/app/interfaces/shipsData.interface';
+import { Player } from 'src/app/interfaces/player.interface';
 
 import { BattlefieldService } from './battlefield.service';
 import { ShipsService } from './ships.service';
@@ -33,8 +34,18 @@ export class GameService {
 
   advices: {preGameAdvices?:Array<any>, gameAdvices?:Array<any>} = {preGameAdvices: [], gameAdvices: []};
 
-  player:{field:Array<Array<Cell>>, ships:Array<Ship>, username?:string} = {field:[], ships:[], username:'player'};
-  enemy:{field:Array<Array<Cell>>, ships:Array<Ship>, username?:string} = {field:[], ships:[], username:'computer'};
+  player:Player = {
+    field:[],
+    ships:[],
+    username:'',
+    id: +(new Date())
+  };
+  enemy:Player = {
+    field:[],
+    ships:[],
+    username:'computer',
+    id: 0
+  };
   playerIsShooter:boolean;
 
   readyToPlay = false;
@@ -64,7 +75,7 @@ export class GameService {
   }
 
 
-  game () {
+  game ():void {
     if (!this.playerIsShooter) {
       this.message.unshift(`Computer shoots first`)
       this.enemyOnFire();
@@ -75,7 +86,7 @@ export class GameService {
 
 
   private enemyCoords:Array<Cell> = [];
-  private setEnemyCoords () {
+  private setEnemyCoords ():void {
     for (let i = 0; i < this.battlefieldService.fieldSize; i++) {
       for (let j = 0; j < this.battlefieldService.fieldSize; j++) {
         this.enemyCoords.push({coordX: i, coordY: j})
@@ -84,7 +95,7 @@ export class GameService {
   }
 
 
-  enemyOnFire () {
+  enemyOnFire ():void {
     this.message.unshift('-')
 
     let enemyOnFire$ = interval(600).pipe().subscribe(() => {
@@ -113,7 +124,7 @@ export class GameService {
   }
 
 
-  onFire (coordX:number, coordY:number, target:string, shooter:string) {
+  onFire (coordX:number, coordY:number, target:string, shooter:string):void {
     let firedCell = this[target].field[coordX][coordY]
 
     // start if
@@ -124,14 +135,14 @@ export class GameService {
         ship.hits++;
         if (ship.hits == ship.size) {
           ship.isSunk = true;
-          this.message.unshift(`${this[shooter].username} sank a ${this[target].username}'s ship on x: ${coordX+1} y: ${coordY+1}`)
+          this.message.unshift(`${this[shooter].username} sank a ${this[target].username}'s ship on x: ${coordY+1} y: ${coordX+1}`)
           ship.coords.forEach((cell:Cell) => this.setMissCellStatusAround(cell, target))
         } else {
-          this.message.unshift(`${this[shooter].username} shot ${this[target].username} on x: ${coordX+1} y: ${coordY+1}`)
+          this.message.unshift(`${this[shooter].username} shot ${this[target].username} on x: ${coordY+1} y: ${coordX+1}`)
         }
       } else {
         firedCell.cellStatus = 'miss';
-        this.message.unshift(`${this[shooter].username} missed ${this[target].username} on x: ${coordX+1} y: ${coordY+1}`)
+        this.message.unshift(`${this[shooter].username} missed ${this[target].username} on x: ${coordY+1} y: ${coordX+1}`)
 
         this.playerIsShooter = !this.playerIsShooter;
       }
@@ -140,13 +151,13 @@ export class GameService {
 
     if (this[target].ships.every((ship:Ship) => ship.isSunk) && !this.gameOver) {
       this.winner = this[shooter].username
-      this.message.unshift('Click on NEW GAME button to start a new game ->', '-', this.winner + ' is winner', '-', '** Game over **', '-', '-');
+      this.message.unshift('** Game over **', '-', '-', this.winner + ' is winner', '-');
       this.gameOver = true
     }
   }
 
 
-  private setMissCellStatusAround (coords:Cell, target:string) {
+  private setMissCellStatusAround (coords:Cell, target:string):void {
     for (let i = 0; i < 3; i++) {
       try {
         if (!this[target].field[coords.coordX-1][coords.coordY-1+i].isShip) {

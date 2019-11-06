@@ -64,8 +64,10 @@ export class ShipsService {
         }
 
         do {
-          coordX = this.getRandom(0, this.fieldSize - 1 - (size-1)*directionX);
-          coordY = this.getRandom(0, this.fieldSize - 1 - (size-1)*directionY);
+          let maxCoordX = this.fieldSize - 1 - (size-1)*directionX;
+          let maxCoordY = this.fieldSize - 1 - (size-1)*directionY;
+          coordX = this.getRandom(0, maxCoordX);
+          coordY = this.getRandom(0, maxCoordY);
         } while (isOccupied (coordX, coordY))
 
         const occupingCells = (_coords:Cell) => {

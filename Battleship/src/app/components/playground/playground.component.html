@@ -2,7 +2,7 @@
     <div class="field-container">
         <div class="battlefield player-battlefield"
             [ngClass]="{
-                winner: gameService.winner == 'player',
+                winner: gameService.winner == gameService.player.username && gameService.winner != '',
                 hover: !gameService.gameOver
             }"
         >
